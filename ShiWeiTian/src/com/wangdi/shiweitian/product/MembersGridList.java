@@ -7,4 +7,5 @@ public class MembersGridList implements Serializable{
 	public String moneytwo;
 	public String moneytype;
 	
+	public boolean ischeck;
 }

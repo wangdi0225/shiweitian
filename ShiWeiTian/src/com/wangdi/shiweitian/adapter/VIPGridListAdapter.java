@@ -66,7 +66,6 @@ public class VIPGridListAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = LayoutInflater.from(mContext).inflate(R.layout.item_membersgridview, null);
 			viewHolder = new ViewHolder();
-			
 			viewHolder.onetext = (TextView) convertView.findViewById(R.id.onetext);
 			viewHolder.twotext = (TextView) convertView.findViewById(R.id.twotext);
 			viewHolder.threetext = (TextView) convertView.findViewById(R.id.threetext);

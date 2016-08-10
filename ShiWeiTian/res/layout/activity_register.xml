@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="48dp"
-                android:src="@drawable/login_redrund" />
+                android:src="@drawable/login_logo" />
         </RelativeLayout>
 
         <EditText
