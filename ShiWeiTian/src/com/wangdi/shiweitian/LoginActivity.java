@@ -14,7 +14,7 @@ import com.wangdi.shiweitian.R;
 
 public class LoginActivity extends Activity {
 	RelativeLayout login;
-	TextView back, forgotpassword, registernow;
+	TextView  forgotpassword, registernow;
 	ImageView loginqq, loginweixing, loginweibo;
 
 	@Override
@@ -24,7 +24,6 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		login = (RelativeLayout) findViewById(R.id.login);
-		back = (TextView) findViewById(R.id.login_back);
 		forgotpassword = (TextView) findViewById(R.id.forgotpassword);
 		registernow = (TextView) findViewById(R.id.registernow);
 		loginqq = (ImageView) findViewById(R.id.qq);
@@ -35,7 +34,6 @@ public class LoginActivity extends Activity {
 		loginweixing.setOnClickListener(onClickListener);
 		forgotpassword.setOnClickListener(onClickListener);
 		registernow.setOnClickListener(onClickListener);
-		back.setOnClickListener(onClickListener);
 		login.setOnClickListener(onClickListener);
 
 	}
@@ -49,9 +47,8 @@ public class LoginActivity extends Activity {
 			case R.id.login:
 				login();
 				break;
-			case R.id.login_back:
-				back();
-				break;
+			
+				
 			case R.id.forgotpassword:
 				forgotpassword();
 				;
@@ -83,10 +80,8 @@ public class LoginActivity extends Activity {
 		startActivity(intent);
 	}
 
-	// 返回主界面方法
-	public void back() {
-		Toast.makeText(this, "等待界面返回跳转", Toast.LENGTH_SHORT).show();
-	}
+	
+	
 
 	// 忘记密码跳转密码找回界面
 	public void forgotpassword() {
