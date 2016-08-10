@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp">
+        <ImageView
+            android:id="@+id/fanhui_released"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/fanhui"
+            android:layout_marginLeft="12dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="已发布"
+            android:textSize="18sp"
+            android:textColor="@color/zitise"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_released"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/shiping_released"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:background="@drawable/zuo"
+            android:layout_height="match_parent"
+            android:text="视频"
+            android:layout_marginBottom="9dp"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_marginLeft="53dp"
+            android:textColor="@drawable/textcolor_radiobutton"/>
+        <RadioButton
+            android:id="@+id/tuwen_released"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginBottom="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="53dp"
+            android:background="@drawable/you"
+            android:layout_height="match_parent"
+            android:text="图文"
+            android:textColor="@drawable/textcolor_radiobutton"/>
+    </RadioGroup>
+    <LinearLayout
+        android:id="@+id/yifabu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+</LinearLayout>

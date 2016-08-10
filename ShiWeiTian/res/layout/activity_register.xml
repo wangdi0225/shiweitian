@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:background="@drawable/login_page"
+        android:orientation="vertical" >
+      
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/left_back"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/back"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/login_redrund" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/phonenumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="43dp"
+            android:background="@drawable/login_user"
+            android:hint="@string/phonenumb"
+            android:paddingLeft="10dp"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="262dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" 
+            android:background="@drawable/login_user"
+            >
+
+           <EditText
+               android:id="@+id/sms"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+               	android:background="@null"
+                android:hint="@string/SMSyanz"
+                android:paddingLeft="10dp"
+               
+                android:textSize="16sp" />
+           <Button 
+               android:id="@+id/getSMS"
+               android:layout_width="91dp"
+               android:layout_height="wrap_content"
+               android:text="@string/getSMS"
+               android:textColor="@color/SMSyanz"
+               android:textSize="12sp"
+               android:background="@null"
+               />
+        </LinearLayout>
+
+        <Button
+         	android:id="@+id/register"
+            android:layout_width="262dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="19dp"
+            android:orientation="horizontal" 
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:background="@drawable/login_redzhuche"/>
+
+        <CheckBox
+            android:id="@+id/register_checkbox"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/agreenment"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            />
+           
+        
+    </LinearLayout>

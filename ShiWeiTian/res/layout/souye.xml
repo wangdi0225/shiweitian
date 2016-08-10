@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/android_viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/zhongse"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radiobutton_souye"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/souyedian"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="@layout/yanse"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobutton_chuyi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/chuyiwei"
+            android:gravity="center"
+            android:text="厨艺"
+            android:textColor="@layout/yanse"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobutton_zhibo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/zhibowei"
+            android:gravity="center"
+            android:text="直播"
+            android:textColor="@layout/yanse"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobutton_wode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/wodewei"
+            android:gravity="center"
+            android:text="我的"
+            android:textColor="@layout/yanse"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+</LinearLayout>

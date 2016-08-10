@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/baise" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的"
+            android:textColor="@color/heise"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_quanbudingdan"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@drawable/dingdan"
+            android:drawablePadding="20dp"
+            android:gravity="center"
+            android:text="全部订单"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_weight="1.2"
+        android:background="@color/baise"
+        android:orientation="horizontal"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp" >
+
+        <TextView
+            android:id="@+id/wode_daifukuan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/daifukuan"
+            android:gravity="center"
+            android:text="代付款"
+            android:textColor="#4d392d"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/wode_daifahuo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/daifahuo"
+            android:gravity="center"
+            android:text="代发货"
+            android:textColor="#4d392d"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/wode_daishouhuo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/daishouhuo"
+            android:gravity="center"
+            android:text="代收货"
+            android:textColor="#4d392d"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/wode_daipingjia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/daipingjia"
+            android:gravity="center"
+            android:text="代评价"
+            android:textColor="#4d392d"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_huiyuankaitong"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1.2"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/huiyuan"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="会员开通"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/zuojiantou" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_fabuxinzuoping"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1.2"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/fabu"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="发布新作品"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/zuojiantou" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_yifabudezuoping"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:layout_marginTop="1dp"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/wc"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="已发布的作品"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/zuojiantou" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_gerenziliao"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1.2"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/gerenzhiliao"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="个人资料"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/zuojiantou" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_wodeshoucang"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:layout_marginTop="1dp"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/sc"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="我的收藏"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/zuojiantou" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_zuijinliulanjilu"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:background="@color/baise"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/liulan"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="最近浏览记录"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/zuojiantou" />
+    </LinearLayout>
+
+</LinearLayout>

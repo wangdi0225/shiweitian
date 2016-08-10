@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="lanse">#33AFA5</color>
+    <color name="huise">#aaaaaa</color>
+    <color name="heise">#000000</color>
+    <color name="baise">#ffffff</color>
+    <color name="kong">@null</color>
+    <color name="lushe">#06FF42</color>
+    <color name="juhong">#FB803C</color>
+    <color name="qianhui">#efefef</color>
+    <color name="zhongse">#463429</color>
+    <color name="jinse">#ffed54</color>
+
+    <drawable name="clr_normal">#FB803C</drawable>
+    <drawable name="clr_pressed">#ffffff</drawable>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="beijingse">#f1f1f1</color>
+    <color name="biaotise">#31241d</color>
+    <color name="zitise">#3b2a20</color>
+    <color name="zitise1">#B5A59C</color>
+    <color name="zitise2">#9d9d9d</color>
+    <color name="bai">#fff</color>
+    <color name="zhutise">#FE7A2A</color>
+
+</resources>

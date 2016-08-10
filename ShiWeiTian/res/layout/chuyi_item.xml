@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/chuyi_bofangcai"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/timg1" />
+
+            <ImageButton
+                android:id="@+id/chuyi_bofangimageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/chuyi_bofangcai"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp"
+                android:background="@null"
+                android:src="@drawable/shipingbofang" />
+
+            <TextView
+                android:id="@+id/chuyi_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chuyi_bofangcai"
+                android:layout_marginLeft="10dp"
+                android:text="@string/caiming"
+                android:textColor="#4d392d"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/chuyi_touxiang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/chuyi_bofangcai"
+                android:layout_below="@id/chuyi_bofangimageButton"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="40dp"
+                android:drawablePadding="5dp"
+                android:drawableTop="@drawable/ssdk_oks_skyblue_logo_qq_checked"
+                android:gravity="center"
+                android:text="@string/shishen"
+                android:textColor="#856b5c"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/chuyi_liulianliang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chuyi_name"
+                android:layout_margin="10dp"
+                android:drawableLeft="@drawable/liulanliang"
+                android:drawablePadding="5dp"
+                android:text="1.5W"
+                android:textColor="#856b5c"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/chuyi_shoucang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chuyi_name"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@id/chuyi_liulianliang"
+                android:drawableLeft="@drawable/shoucangwei"
+                android:drawablePadding="5dp"
+                android:text="1564"
+                android:textColor="#856b5c"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/chuyi_pinglun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chuyi_name"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@id/chuyi_shoucang"
+                android:drawableLeft="@drawable/pinglun"
+                android:drawablePadding="5dp"
+                android:text="4W"
+                android:textColor="#856b5c"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

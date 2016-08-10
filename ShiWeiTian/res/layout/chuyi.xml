@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/baise" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/chuyi"
+            android:textColor="@color/heise"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/chuyi_gouwuche"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/sousuo" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/chuyi_radiogroup"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1.5"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/chuyi_shiping"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/denglu4"
+            android:button="@null"
+            android:checked="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="@string/shiping"
+            android:textColor="@layout/yanse3"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/chuyi_tuwen"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/denglu1"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:text="@string/tuwen"
+            android:textColor="@layout/yanse3"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp" >
+
+        <Spinner
+            android:id="@+id/chuyi_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@null" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/paixudian"
+            android:gravity="center"
+            android:text="@string/nanyi"
+            android:textColor="@color/juhong"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/paixuwei"
+            android:gravity="center"
+            android:text="@string/renqi"
+            android:textColor="@color/heise"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/chuyi_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="8"
+        android:background="#ffffff"
+        android:divider="#efefef"
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="true"
+        android:listSelector="#aaaaaa" />
+
+    <ListView
+        android:id="@+id/chuyi_listview2"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="8"
+        android:background="#ffffff"
+        android:divider="#efefef"
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="true"
+        android:listSelector="#aaaaaa"
+        android:visibility="gone" />
+
+</LinearLayout>
