@@ -32,20 +32,20 @@ public class RegisterActivity extends Activity{
 			back=(TextView) findViewById(R.id.back);
 			getSMS=(Button) findViewById(R.id.getSMS);
 			register=(Button) findViewById(R.id.register);
-		//	checkbox=(CheckBox) findViewById(R.id.register_checkbox);
+			checkbox=(CheckBox) findViewById(R.id.register_checkbox);
 			phonenumb=(EditText) findViewById(R.id.phonenumb);
 			sms=(EditText) findViewById(R.id.sms);
 			getSMS.setOnClickListener(onClickListener);
 			register.setOnClickListener(onClickListener);
 			back.setOnClickListener(onClickListener);
-	/*		checkbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			checkbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					// TODO Auto-generated method stub	
 					check=isChecked;
 				}
-			});*/
+			});
 		
 		}
 		

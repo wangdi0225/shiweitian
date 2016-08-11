@@ -30,6 +30,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.AdapterView.OnItemClickListener;
@@ -52,7 +53,7 @@ public class SouyeFragment extends Fragment {
 	private LinearLayout viewGroup;
 	private RadioGroup radioGroup;
 	private View header;
-	private MyListView listview;
+	private ListView listview;
 	private ViewFlipper flipper;
 	public static String TAG = "HIPPO_DEBUG";
 
@@ -65,7 +66,7 @@ public class SouyeFragment extends Fragment {
 		header = LayoutInflater.from(getActivity()).inflate(
 				R.layout.souye_item1, null);
 		viewGroup = (LinearLayout) header.findViewById(R.id.viewGroup);
-		listview = (MyListView) v.findViewById(R.id.mylistview);
+		listview = (ListView) v.findViewById(R.id.souye_listview);
 		listview.addHeaderView(header);
 		SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(),
 				R.layout.imag, new String[] { "iamg" },

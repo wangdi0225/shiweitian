@@ -74,6 +74,7 @@ public class ChangepasswordActivity extends Activity{
 					startActivity(intent);
 					finish();
 				}else{
+					promptsone.setText("");
 					promptstwo.setText("两次密码输入不一致");	
 				}
 			}else{
