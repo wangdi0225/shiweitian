@@ -49,9 +49,7 @@
         <activity
             android:name="com.wangdi.shiweitian.Released"
             android:launchMode="singleTask" />
-        <activity
-            android:name="com.wangdi.shiweitian.GouwucheActivity"
-            android:launchMode="singleTask" />
+       
     </application>
     <application>
     </application>
