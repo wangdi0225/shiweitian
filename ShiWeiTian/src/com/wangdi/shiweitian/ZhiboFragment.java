@@ -7,6 +7,7 @@ import com.wangdi.shiweitian.adapter.ZhiboAdapter;
 import com.wangdi.shiweitian.product.Zhibopriduct;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -65,13 +66,16 @@ public class ZhiboFragment extends Fragment {
 
 			Toast.makeText(getActivity(), "你点的第" + arg2 + "行",
 					Toast.LENGTH_SHORT).show();
+			Intent intent=new Intent();
+			intent.setClass(getActivity(), ChuyiActivity.class);
+			startActivity(intent);
 		}
 
 	};
 
 	public void getDate() {
 		lists = new ArrayList<Zhibopriduct>();
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) {	
 			zhibopriduct = new Zhibopriduct();
 			zhibopriduct.setImge(R.drawable.timg1);
 			zhibopriduct.setName("龙虾香蕉香菜根");
@@ -106,8 +110,9 @@ public class ZhiboFragment extends Fragment {
 				Toast.makeText(getActivity(), "购买", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.zhibo_jiaru:
-				Toast.makeText(getActivity(), "加入购物车", Toast.LENGTH_SHORT)
-						.show();
+				Intent intent=new Intent();
+				intent.setClass(getActivity(), GouwucheActivity.class);
+				startActivity(intent);
 				break;
 			case R.id.zhibo_soucang:
 				Toast.makeText(getActivity(), "收藏", Toast.LENGTH_SHORT).show();

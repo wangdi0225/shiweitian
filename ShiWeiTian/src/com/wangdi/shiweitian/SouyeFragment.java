@@ -112,9 +112,9 @@ public class SouyeFragment extends Fragment {
 				break;
 			case R.id.souye_gouwuche:
 				Toast.makeText(getActivity(), "购物车", Toast.LENGTH_SHORT).show();
-			/*	Intent intent=new Intent();
+			Intent intent=new Intent();
 				intent.setClass(getActivity(), GouwucheActivity.class);
-				startActivity(intent);*/
+				startActivity(intent);
 				break;
 			default:
 				break;
