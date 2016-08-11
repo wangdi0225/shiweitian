@@ -8,7 +8,7 @@
      >
      
     <TextView
-    android:id="@+id/members_linearlayout"
+    android:id="@+id/members_nowplay"
     android:layout_width="fill_parent"
     android:layout_height="45dp"
     android:layout_alignParentBottom="true"
@@ -19,7 +19,7 @@
     android:textSize="14sp" />
     
 <LinearLayout 
-    android:layout_above="@id/members_linearlayout"
+    android:layout_above="@id/members_nowplay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"

@@ -17,11 +17,14 @@ import android.view.View.OnClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MembersAcitivity extends Activity {
 	GridView gridView;
 	ListView listview;
 	ImageView back;
+	TextView nowplay;
 	List<MembersGridList> gridlists = new ArrayList<MembersGridList>();
 	List<MembersListLists> listlists = new ArrayList<MembersListLists>();
 	VIPGridListAdapter gridadapter;
@@ -42,11 +45,13 @@ public class MembersAcitivity extends Activity {
 		back = (ImageView) findViewById(R.id.back);
 		gridView = (GridView) findViewById(R.id.sion_listview_gridview);
 		listview = (ListView) findViewById(R.id.members_listview);
+		nowplay = (TextView) findViewById(R.id.members_nowplay);
 		listadapter = new VIPListViewAdapter(this);
 		gridadapter = new VIPGridListAdapter(this);
 		listview.setAdapter(listadapter);
 		gridView.setAdapter(gridadapter);
 		back.setOnClickListener(onClickListener);
+		nowplay.setOnClickListener(onClickListener);
 		addgrid();// 添加数据
 		addlist();
 	}
@@ -62,7 +67,9 @@ public class MembersAcitivity extends Activity {
 				intent.setClass(MembersAcitivity.this, MainActivity.class);
 				startActivity(intent);
 				break;
+			case R.id.members_nowplay:
 
+				playmoney();
 			default:
 				break;
 			}
@@ -94,5 +101,117 @@ public class MembersAcitivity extends Activity {
 			gridlists.add(meberslist);
 		}
 		gridadapter.setData(gridlists);
+	}
+
+	// 付款方法
+	public void playmoney() {
+
+		for (int i = 0; i < gridlists.size(); i++) {
+			if (gridlists.get(i).ischeck) {
+				if (i == 0) {
+					for (int j = 0; j < listlists.size(); j++) {
+						if (listlists.get(j).ischeck) {
+							if (j == 0) {
+								Toast.makeText(MembersAcitivity.this,
+										"用百度钱包,支付15快连续包月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 1) {
+								Toast.makeText(MembersAcitivity.this,
+										"用微信支付,支付15快连续包月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 2) {
+								Toast.makeText(MembersAcitivity.this,
+										"用支付宝支付,支付15快连续包月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 3) {
+								Toast.makeText(MembersAcitivity.this,
+										"用话费支付,支付15快连续包月", Toast.LENGTH_SHORT)
+										.show();
+							}
+						}
+					}
+				} else if (i == 1) {
+					for (int j = 0; j < listlists.size(); j++) {
+						if (listlists.get(j).ischeck) {
+							if (j == 0) {
+								Toast.makeText(MembersAcitivity.this,
+										"用百度钱包支付,支付192/12月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 1) {
+								Toast.makeText(MembersAcitivity.this,
+										"用微信支付,支付192/12月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 2) {
+								Toast.makeText(MembersAcitivity.this,
+										"用支付宝支付,支付192/12月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 3) {
+								Toast.makeText(MembersAcitivity.this,
+										"用话费支付,支付192/12月", Toast.LENGTH_SHORT)
+										.show();
+							}
+						}
+					}
+				} else if (i == 2) {
+					for (int j = 0; j < listlists.size(); j++) {
+						if (listlists.get(j).ischeck) {
+							if (j == 0) {
+								Toast.makeText(MembersAcitivity.this,
+										"用百度钱包支付,支付58/3个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 1) {
+								Toast.makeText(MembersAcitivity.this,
+										"用微信支付,支付58/3个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 2) {
+								Toast.makeText(MembersAcitivity.this,
+										"用支付宝支付,支付58/3个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 3) {
+								Toast.makeText(MembersAcitivity.this,
+										"用话费支付,支付58/3个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+						}
+					}
+				} else if (i == 3) {
+					for (int j = 0; j < listlists.size(); j++) {
+
+						if (listlists.get(j).ischeck) {
+							if (j == 0) {
+								Toast.makeText(MembersAcitivity.this,
+										"用百度钱包支付,支付19.8/1个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 1) {
+								Toast.makeText(MembersAcitivity.this,
+										"用微信支付,支付19.8/1个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 2) {
+								Toast.makeText(MembersAcitivity.this,
+										"用支付宝支付,支付19.8/1个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+							if (j == 3) {
+								Toast.makeText(MembersAcitivity.this,
+										"用话费支付,支付19.8/1个月", Toast.LENGTH_SHORT)
+										.show();
+							}
+						}
+					}
+				}
+			}
+		}
+
 	}
 }

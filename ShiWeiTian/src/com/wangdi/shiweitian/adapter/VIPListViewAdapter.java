@@ -100,8 +100,7 @@ public class VIPListViewAdapter extends BaseAdapter {
 		}else{
 			viewHolder.check.setImageResource(R.drawable.nochange);
 		}
-		
-return convertView;
+		return convertView;
 	}
 
 	class ViewHolder {
