@@ -1,11 +1,20 @@
 package com.wangdi.shiweitian;
 
+import org.json.JSONObject;
+
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
+import cn.smssdk.utils.SMSLog;
+
 import com.wangdi.shiweitian.R;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,7 +27,9 @@ public class ForgetpasswordActivity	extends Activity {
 		TextView back;
 		EditText phonenumb,code;
 		Button getsms,next;
-		TextView promptsone,promptstwo;
+		
+		private static String APPKEY="15e33a34bd368";
+		private static String APPSECRET="fcabe53739edca54187d1604b186fbdf";
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub
@@ -29,11 +40,26 @@ public class ForgetpasswordActivity	extends Activity {
 			code=(EditText) findViewById(R.id.code);
 			getsms=(Button) findViewById(R.id.getSMS);
 			next=(Button) findViewById(R.id.next);
-			promptsone=(TextView) findViewById(R.id.promptsone);
-			promptstwo=(TextView) findViewById(R.id.promptstwo);
+			
 			back.setOnClickListener(onClickListener);
 			getsms.setOnClickListener(onClickListener);
 			next.setOnClickListener(onClickListener);
+			
+			SMSSDK.initSDK(this,APPKEY,APPSECRET,false);
+			EventHandler eh=new EventHandler(){
+				
+				@Override
+				public void afterEvent(int event, int result, Object data) {
+					Message msg = new Message();
+					msg.arg1 = event;
+					msg.arg2 = result;
+					msg.obj = data;
+					mHandler.sendMessage(msg);
+				}
+				
+			};
+			SMSSDK.registerEventHandler(eh);
+			
 		}
 		
 		OnClickListener onClickListener = new OnClickListener() {
@@ -49,7 +75,8 @@ public class ForgetpasswordActivity	extends Activity {
 					getsms(phonenumb.getText().toString());
 					break;
 				case R.id.next:
-					next();
+					SMSSDK.submitVerificationCode("86", phString, code.getText().toString());
+					
 					break;
 
 				default:
@@ -59,26 +86,13 @@ public class ForgetpasswordActivity	extends Activity {
 		};
 		//下一步页面跳转方法
 		public void next(){
-			judgecode();
-			if(promptsone.getText().toString().equals(" ")&&promptstwo.getText().toString().equals(" ")){
-				Intent intent= new Intent();
+			Intent intent= new Intent();
 				intent.setClass(ForgetpasswordActivity.this, ChangepasswordActivity.class);
 				startActivity(intent);
 				finish();
-			}else{
-				
-			}
-			
 		}
 		
-		//判断验证码是否正确方法
-		public void judgecode(){
-			if(code.getText().toString().equals("A123")){
-				promptstwo.setText(" ");
-			}else{
-				promptstwo.setText("验证码不正确");
-			}
-		}
+	
 		//返回方法
 		public void back(){
 			Intent intent= new Intent();
@@ -87,17 +101,65 @@ public class ForgetpasswordActivity	extends Activity {
 			finish();
 		}
 		
-		//检验电话号码是否规范,规范发送短信,不规范提醒
+		//发送短信
+		String phString;
 		public void getsms(String str){
 			if(isMobileNO(str)){
-				Toast.makeText(this, "发不来", Toast.LENGTH_SHORT).show();
-				promptsone.setText(" ");
+				if(judge(str)){
+				SMSSDK.getVerificationCode("86",str);
+				phString=str;
+				}
 			}else{
-				promptsone.setText("输入的电话号码格式错误");
+				Toast.makeText(ForgetpasswordActivity.this, "输入的电话号码格式错误",Toast.LENGTH_SHORT).show();
+				
 			}
 		}
 		
+		Handler mHandler = new Handler()
+		{
+			public void handleMessage(Message msg) {
+
+				// TODO Auto-generated method stub
+				super.handleMessage(msg);
+				int event = msg.arg1;
+				int result = msg.arg2;
+				Object data = msg.obj;
+				Log.e("event", "event="+event);
+//				System.out.println("--------result---0"+event+"--------*"+result+"--------"+data);
+				
+				if (result == SMSSDK.RESULT_COMPLETE) {
+					if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+					        	Toast.makeText(getApplicationContext(), "发送验证码成功", Toast.LENGTH_SHORT).show();
+					}else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功
+								next();
+					} 
+			} else {
+				int status = 0;	
+				try {
+					((Throwable) data).printStackTrace();
+					Throwable throwable = (Throwable) data;
+					JSONObject object = new JSONObject(throwable.getMessage());
+					String des = object.optString("detail");
+					status = object.optInt("status");
+					if (!TextUtils.isEmpty(des)) {
+						Toast.makeText(ForgetpasswordActivity.this, des, Toast.LENGTH_SHORT).show();
+						return;
+					}
+				} catch (Exception e) {
+					SMSLog.getInstance().w(e);
+				}
+		}
+			
+			};
+		};
+		protected void onDestroy() {
+			super.onDestroy();
+			SMSSDK.unregisterAllEventHandler();
+		};
 		
+		
+		
+	
 		
 		
 		/** 
@@ -117,4 +179,12 @@ public class ForgetpasswordActivity	extends Activity {
 			   return mobiles.matches(telRegex); 
 		  } 
 		   }  
+		
+		///判断手机号是否为已注册用户方法
+		public boolean judge(String str){
+			return true;
+			
+		}
+		
+		
 }

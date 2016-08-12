@@ -1,9 +1,16 @@
 package com.wangdi.shiweitian;
 
+import java.util.Set;
+
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,16 +21,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
+import cn.smssdk.utils.SMSLog;
+
+
 import com.wangdi.shiweitian.R;
 
 
-public class RegisterActivity extends Activity{
+public class RegisterActivity extends Activity {
 		TextView back;
 		Button getSMS,register;
 		CheckBox checkbox;
 		EditText phonenumb,sms;
 		private boolean check;
-		
+		private static String APPKEY="15e33a34bd368";
+		private static String APPSECRET="fcabe53739edca54187d1604b186fbdf";
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub
@@ -46,10 +59,25 @@ public class RegisterActivity extends Activity{
 					check=isChecked;
 				}
 			});
-		
+			SMSSDK.initSDK(this,APPKEY,APPSECRET,false);
+			EventHandler eh=new EventHandler(){
+				
+				@Override
+				public void afterEvent(int event, int result, Object data) {
+					Message msg = new Message();
+					msg.arg1 = event;
+					msg.arg2 = result;
+					msg.obj = data;
+					mHandler.sendMessage(msg);
+				}
+				
+			};
+			SMSSDK.registerEventHandler(eh);
 		}
 		
 		//监听
+		
+		
 		
 		OnClickListener onClickListener = new OnClickListener() {
 			
@@ -69,7 +97,6 @@ public class RegisterActivity extends Activity{
 				case R.id.register:
 					saveuser();
 					
-					
 					break;
 
 				default:
@@ -78,27 +105,74 @@ public class RegisterActivity extends Activity{
 			}
 		};
 		//获取验证码方法
+		private String phString;
 		public void getSMS(String str){
 			if(isMobileNO(str)){
-				Toast.makeText(RegisterActivity.this, "发送验证码为A123", Toast.LENGTH_SHORT).show();
+					SMSSDK.getVerificationCode("86",str);   
+					//SMSSDK.getVoiceVerifyCode("86",phonEditText.getText().toString());
+					phString=str;
+				
 			}else{
-				Toast.makeText(RegisterActivity.this, "请输入正确的手机号", Toast.LENGTH_LONG).show();
+				Toast.makeText(RegisterActivity.this, "请填写正确的手机号", Toast.LENGTH_LONG).show();
 			}
 			
 		}
 		//判断验证码是否正确,用户协议是否打钩方法
 		public void saveuser(){
-			if(sms.getText().toString().equals("A123")){
-				
-				if(check){
-					Toast.makeText(this, "注册未开通", Toast.LENGTH_SHORT).show();
+			if(check){
+					SMSSDK.submitVerificationCode("86", phString, sms.getText().toString());
+					
 				}else{
 				Toast.makeText(this, "请阅读用户协议", Toast.LENGTH_SHORT).show();}
-			}else{
-				Toast.makeText(RegisterActivity.this, "请输入正确的验证码", Toast.LENGTH_SHORT).show();
-			}
-			
 		}
+		
+		
+		Handler mHandler = new Handler()
+		{
+			public void handleMessage(Message msg) {
+
+				// TODO Auto-generated method stub
+				super.handleMessage(msg);
+				int event = msg.arg1;
+				int result = msg.arg2;
+				Object data = msg.obj;
+				Log.e("event", "event="+event);
+//				System.out.println("--------result---0"+event+"--------*"+result+"--------"+data);
+				
+				if (result == SMSSDK.RESULT_COMPLETE) {
+					if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+					        	Toast.makeText(getApplicationContext(), "发送验证码成功", Toast.LENGTH_SHORT).show();
+					}else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功
+								Toast.makeText(getApplicationContext(), "注册成功", Toast.LENGTH_SHORT).show();
+								go_user();
+					} 
+			} else {
+				int status = 0;	
+				try {
+					((Throwable) data).printStackTrace();
+					Throwable throwable = (Throwable) data;
+					JSONObject object = new JSONObject(throwable.getMessage());
+					String des = object.optString("detail");
+					status = object.optInt("status");
+					if (!TextUtils.isEmpty(des)) {
+						Toast.makeText(RegisterActivity.this, des, Toast.LENGTH_SHORT).show();
+						return;
+					}
+				} catch (Exception e) {
+					SMSLog.getInstance().w(e);
+				}
+		}
+			
+			};
+		};
+		protected void onDestroy() {
+			super.onDestroy();
+			SMSSDK.unregisterAllEventHandler();
+		};
+		
+		
+		
+		
 		
 		//验证手机号是否正确的方法
 		public static boolean isMobileNO(String mobiles) {  
@@ -114,6 +188,13 @@ public class RegisterActivity extends Activity{
 		  else {
 			  return mobiles.matches(telRegex); 
 		  } 
-		  }  
+		  }
 		
+		//写入用户数据方法
+		public void go_user(){
+			Intent intent =new Intent();
+			intent.setClass(RegisterActivity.this, LoginActivity.class);
+			startActivity(intent);
+			finish();
+		}
 }
