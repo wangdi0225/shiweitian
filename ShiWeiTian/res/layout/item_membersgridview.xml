@@ -5,17 +5,19 @@
     android:orientation="vertical" >
 
    <RelativeLayout
-       
+       android:id="@+id/members_back"
        android:layout_width="fill_parent"
        android:layout_height="fill_parent"
-       android:background="@color/item_members" >
+       android:background="@color/item_members"
+       
+        >
 
        <TextView
            android:id="@+id/onetext"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_centerHorizontal="true"
-           android:layout_marginTop="17dp"
+           android:layout_marginTop="10dp"
            android:text="连续包月"
            android:textSize="11sp" />
 
@@ -26,7 +28,7 @@
            android:layout_below="@+id/onetext"
            android:layout_centerHorizontal="true"
            android:text="15快/每月"
-           android:layout_marginTop="7dp"
+           android:layout_marginTop="5dp"
            android:textColor="@color/red"
            android:textSize="14sp" />
        
@@ -38,7 +40,8 @@
            android:text="自动续费,可随时取消"
            android:layout_below="@id/twotext"
            android:textSize="10sp"
-           android:layout_marginTop="3dp"
+           android:layout_marginTop="1dp"
+           android:layout_marginBottom="3dp"
            android:textColor="@color/VIPtypecolor"
            />
    </RelativeLayout>

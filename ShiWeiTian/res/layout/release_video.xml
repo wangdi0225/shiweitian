@@ -23,6 +23,7 @@ android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@drawable/shuru"/>
         <Button
+            android:id="@+id/sc_video"
             android:layout_width="92dp"
             android:gravity="center"
             android:textSize="11dp"
@@ -89,21 +90,15 @@ android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="27dp"
         android:layout_marginTop="11dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="标题名称"
-            android:textColor="#A69389"
+ <EditText
+            android:layout_width="228dp"
+            android:hint="标题名称"
+            android:textColorHint="#A69389"
             android:textSize="11sp"
             android:gravity="center_vertical"
-
             android:paddingLeft="12dp"
             android:layout_height="match_parent"
             android:background="@drawable/shuru"/>
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"/>
-
     </LinearLayout>
 
     <LinearLayout

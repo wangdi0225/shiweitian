@@ -8,37 +8,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:background="@color/baise" >
-
-            <ImageView
-                android:id="@+id/souye_shousuo"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/shousuo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/souye"
-                android:textColor="@color/heise"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:id="@+id/souye_gouwuche"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/gouwuche" />
-        </RelativeLayout>
+        
 
         <ViewFlipper
             android:id="@+id/souye_viewflipper"

@@ -46,21 +46,29 @@ public class ChuyiFragment extends Fragment {
 	private static final String[] m = { "全部", "渝菜", "川菜", "鲁菜", "粤菜" };
 	private Spinner spinner;
 	private ArrayAdapter<String> arrayadapter;
+	private TextView textViewnyd;
+	private TextView textViewrq;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO 自动生成的方法存根
 		View v = inflater.inflate(R.layout.chuyi, container, false);
+		header = LayoutInflater.from(getActivity()).inflate(
+				R.layout.chuyi_zhanshi_item, null);
 		listview = (ListView) v.findViewById(R.id.chuyi_listview);
+		listview.addHeaderView(header);
 		listview1 = (ListView) v.findViewById(R.id.chuyi_listview2);
+		listview1.addHeaderView(header);
 		imageViewss = (ImageView) v.findViewById(R.id.chuyi_gouwuche);
-		radioButtonsp = (RadioButton) v.findViewById(R.id.chuyi_shiping);
-		radioButtontw = (RadioButton) v.findViewById(R.id.chuyi_tuwen);
+		radioButtonsp = (RadioButton) header.findViewById(R.id.chuyi_shiping);
+		radioButtontw = (RadioButton) header.findViewById(R.id.chuyi_tuwen);
+		textViewnyd = (TextView) header.findViewById(R.id.chuyi_nanyidu);
+		textViewrq = (TextView) header.findViewById(R.id.chuyi_renqi);
 		imageViewss.setOnClickListener(onClickListener);
-		radioGroup = (RadioGroup) v.findViewById(R.id.chuyi_radiogroup);
+		radioGroup = (RadioGroup) header.findViewById(R.id.chuyi_radiogroup);
 		radioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
-		spinner = (Spinner) v.findViewById(R.id.chuyi_spinner);
+		spinner = (Spinner) header.findViewById(R.id.chuyi_spinner);
 		arrayadapter = new ArrayAdapter<String>(getActivity(),
 				R.layout.myspinner, m);
 

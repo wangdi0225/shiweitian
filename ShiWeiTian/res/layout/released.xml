@@ -4,7 +4,8 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="46dp">
+        android:layout_height="46dp"
+        android:background="@color/bai">
         <ImageView
             android:id="@+id/fanhui_released"
             android:layout_width="wrap_content"
@@ -21,6 +22,7 @@
     </RelativeLayout>
 
     <RadioGroup
+        android:background="@color/bai"
         android:id="@+id/rg_released"
         android:layout_width="match_parent"
         android:layout_height="51dp"
