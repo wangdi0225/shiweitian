@@ -1,133 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="17dp"
-    android:orientation="vertical">
+    android:orientation="vertical" >
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:layout_marginTop="22dp">
-        <TextView
-            android:layout_width="0dp"
-android:layout_weight="1"
-            android:text="一次性上传不能超过300M"
-            android:textColor="#A69389"
-            android:textSize="11sp"
-            android:gravity="center_vertical"
-            android:layout_marginRight="28dp"
-            android:paddingLeft="12dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/shuru"/>
+        android:layout_height="match_parent"
+        android:layout_margin="17dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:layout_marginTop="22dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="28dp"
+                android:layout_weight="1"
+                android:background="@drawable/shuru"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:text="一次性上传不能超过300M"
+                android:textColor="#A69389"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/sc_video"
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/but"
+                android:gravity="center"
+                android:text="上传本地视频"
+                android:textColor="@color/bai"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginTop="11dp" >
+
+            <Spinner
+                style="@style/spinner_style"
+                android:id="@+id/sp_zl"
+                android:layout_width="169.5dp"
+                android:layout_height="27dp"
+                android:background="@drawable/shuru" >
+            </Spinner>
+
+            <ImageButton
+                android:id="@+id/ib_zl"
+                android:layout_width="27dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="31dp"
+                android:background="@drawable/but"
+                android:gravity="center"
+                android:src="@drawable/xiala" />
+        </LinearLayout>
+
+       <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginTop="11dp" >
+
+            <Spinner
+                style="@style/spinner_style"
+                android:id="@+id/sp_nd"
+                android:layout_width="169.5dp"
+                android:layout_height="27dp"
+                android:background="@drawable/shuru" >
+            </Spinner>
+
+            <ImageButton
+                android:id="@+id/ib_nd"
+                android:layout_width="27dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="31dp"
+                android:background="@drawable/but"
+                android:gravity="center"
+                android:src="@drawable/xiala" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:layout_marginTop="11dp" >
+
+            <EditText
+                android:layout_width="228dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shuru"
+                android:gravity="center_vertical"
+                android:hint="标题名称"
+                android:paddingLeft="12dp"
+                android:textColorHint="#A69389"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="11dp" >
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="28dp"
+                android:layout_weight="1"
+                android:background="@drawable/shuru"
+                android:hint="作品简单描述，30字以内"
+                android:paddingBottom="15dp"
+                android:paddingLeft="12dp"
+                android:textColorHint="#A69389"
+                android:textSize="11sp" />
+        </LinearLayout>
+
         <Button
-            android:id="@+id/sc_video"
-            android:layout_width="92dp"
-            android:gravity="center"
-            android:textSize="11dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="75dp"
             android:background="@drawable/but"
+            android:gravity="center"
+            android:text="发布"
             android:textColor="@color/bai"
-            android:layout_height="match_parent"
-            android:text="上传本地视频"/>
+            android:textSize="18sp" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:layout_marginTop="11dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="选择菜系种类"
-            android:textColor="#A69389"
-            android:textSize="11sp"
-            android:gravity="center_vertical"
-            android:layout_marginRight="28dp"
-            android:paddingLeft="12dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/shuru"/>
-        <ImageButton
-            android:layout_width="27dp"
-            android:gravity="center"
-           android:src="@drawable/xiala"
-            android:background="@drawable/but"
-            android:layout_height="match_parent"
-            />
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:layout_marginTop="11dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="难易度"
-            android:textColor="#A69389"
-            android:textSize="11sp"
-            android:gravity="center_vertical"
-            android:layout_marginRight="28dp"
-            android:paddingLeft="12dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/shuru"/>
-        <ImageButton
-            android:layout_width="27dp"
-            android:gravity="center"
-            android:src="@drawable/xiala"
-            android:background="@drawable/but"
-            android:layout_height="match_parent"
-          />
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:layout_marginTop="11dp">
- <EditText
-            android:layout_width="228dp"
-            android:hint="标题名称"
-            android:textColorHint="#A69389"
-            android:textSize="11sp"
-            android:gravity="center_vertical"
-            android:paddingLeft="12dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/shuru"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="11dp">
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:hint="作品简单描述，30字以内"
-            android:textColorHint="#A69389"
-            android:textSize="11sp"
-            android:paddingBottom="15dp"
-            android:layout_marginRight="28dp"
-            android:paddingLeft="12dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/shuru"/>
-
-    </LinearLayout>
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@drawable/but"
-    android:layout_marginTop="75dp"
-    android:text="发布"
-    android:textSize="18sp"
-    android:gravity="center"
-    android:textColor="@color/bai"/>
-
-</LinearLayout>
 
 </LinearLayout>

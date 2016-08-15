@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -8,5 +8,10 @@
 
     <!-- Application theme. -->
 
-
+ <!-- spinner -->
+    <style name="spinner_style">
+    <item name="android:background">@drawable/shuru</item>
+    <item name="android:paddingLeft">5dp</item>
+t
+    </style>
 </resources>
