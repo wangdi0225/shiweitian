@@ -78,7 +78,7 @@ public class ChangepasswordActivity extends Activity{
 					promptstwo.setText("两次密码输入不一致");	
 				}
 			}else{
-				promptsone.setText("密码请用字母与数字,且大于5位不大于 18位");
+				promptsone.setText("密码请用字母与数字,且大于5位不大于 15位");
 				
 			}
 		}
@@ -89,7 +89,7 @@ public class ChangepasswordActivity extends Activity{
 			 if (TextUtils.isEmpty(password)) {//如果该参数为空或""
 				 return false;  }
 			  else {
-				  if(password.length()>5&&password.length()<19){
+				  if(password.length()>5&&password.length()<15){
 					  return password.matches(format); 
 				  }else{
 					  return false;
