@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-     <RelativeLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -27,63 +27,63 @@
             android:textSize="22sp" />
     </RelativeLayout>
 
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="32dp"
+        android:id="@+id/dingdan_radioGroup"
+        android:orientation="horizontal"
+        android:paddingTop="13dp" >
+
+        <RadioButton
+            android:id="@+id/dfukuan_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            
+            android:paddingLeft="15dp"
+            android:button="@null"
+            android:text="待付款"
+            android:textColor="@color/bianji"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/dpingjia_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:paddingLeft="15dp"
+            android:button="@null"
+            android:text="待评价"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/dshouhuo_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:button="@null"
+            android:layout_weight="1"
+            android:paddingLeft="15dp"
+            android:text="待收货"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/dfahuo_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:paddingLeft="15dp"
+            android:button="@null"
+            android:text="待发货"
+            android:textSize="16sp" />
+    </RadioGroup>
+
     <LinearLayout
+        android:id="@+id/fm_layout"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal" 
-        android:paddingTop="13dp">
-
-        <TextView
-            android:id="@+id/dfukuan_textView"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-           android:paddingLeft="15dp"
-            android:layout_weight="1"
-            android:text="待付款"
-            android:textColor="@color/bianji"
-            android:textSize="20sp" 
-            android:paddingBottom="8dp"/>
-
-        <TextView
-            android:id="@+id/dpingjia_textView"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            
-            android:paddingLeft="15dp"
-            android:layout_weight="1"
-            android:text="待评价"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/dshouhuo_textView"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:paddingLeft="15dp"
-            android:layout_weight="1"
-            android:text="待收货"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/dfahuo_textView"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:paddingLeft="15dp"
-            android:layout_weight="1"
-            android:text="待发货"
-            android:textSize="20sp" />
+        android:orientation="vertical"
+        >
     </LinearLayout>
-    
-    <ListView 
-        android:id="@+id/dingdan_listView"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:dividerHeight="1dp"
-        
-        ></ListView>
-    
-
-    
 
 </LinearLayout>

@@ -12,6 +12,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,14 @@ public class QuanbuDingdanActivity extends Activity {
 	ListView listview;
 	SimpleAdapter simpleAdpter;
 	List<Map<String, Object>> list;
+	
+	RadioButton radioButtonfukuan;
+	RadioButton radioButtonfahuo;
+	RadioButton radioButtonshouhuo;
+	RadioButton radioButtonpingjia;
+	
+	RadioGroup radioGroup;
+	
 
 	ImageButton imageButton;
 	TextView quxiao_dingdan, queren_fukuan, dfukuan_textView,
@@ -33,8 +43,16 @@ public class QuanbuDingdanActivity extends Activity {
 
 		setContentView(R.layout.activity_quanbu_dingdan); // 布局listView
 
+		radioButtonfukuan=(RadioButton)findViewById(R.id.dfukuan_button);
+		radioButtonfahuo=(RadioButton)findViewById(R.id.dfahuo_button);
+		radioButtonpingjia=(RadioButton)findViewById(R.id.dpingjia_button);
+		radioButtonshouhuo=(RadioButton)findViewById(R.id.dshouhuo_button);
+		
 		getData();
 		Dingdan();
+		
+		radioGroup=(RadioGroup)findViewById(R.id.dingdan_radioGroup);
+		
 
 		listview.setAdapter(simpleAdpter);
 
@@ -43,10 +61,7 @@ public class QuanbuDingdanActivity extends Activity {
 		quxiao_dingdan = (TextView) findViewById(R.id.quxiao_dingdan);
 		queren_fukuan = (TextView) findViewById(R.id.queren_fukuan);
 
-		dfukuan_textView = (TextView) findViewById(R.id.dfukuan_textView);
-		dpingjia_textView = (TextView) findViewById(R.id.dpingjia_textView);
-		dshouhuo_textView = (TextView) findViewById(R.id.dshouhuo_textView);
-		dfahuo_textView = (TextView) findViewById(R.id.dfahuo_textView);
+		
 
 		imageView = (ImageView) findViewById(R.id.dingdan_back);
 
@@ -68,7 +83,7 @@ public class QuanbuDingdanActivity extends Activity {
 						Toast.LENGTH_SHORT).show();
 
 				break;
-			case R.id.dfukuan_textView:
+			case R.id.dfukuan_button:
 				Toast.makeText(QuanbuDingdanActivity.this, "待付款",
 						Toast.LENGTH_SHORT).show();
 
@@ -82,7 +97,7 @@ public class QuanbuDingdanActivity extends Activity {
 
 	public void Dingdan() {
 
-		listview = (ListView) findViewById(R.id.dingdan_listView);
+	//	listview = (ListView) findViewById(R.id.dingdan_listView);
 
 		list = new ArrayList<Map<String, Object>>();
 

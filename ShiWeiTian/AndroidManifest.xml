@@ -8,6 +8,17 @@
         android:minSdkVersion="13"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -22,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.wangdi.shiweitian.MembersAcitivity"
             android:launchMode="singleTask" />
@@ -53,16 +63,12 @@
         <activity
             android:name="com.wangdi.shiweitian.ChuyiActivity"
             android:launchMode="singleTask" />
-       
         <activity
             android:name="com.wangdi.shiweitian.GouwucheActivity"
             android:launchMode="singleTask" />
-         <activity
+        <activity
             android:name="com.wangdi.shiweitian.ZhiboActivity"
             android:launchMode="singleTask" />
-         
-        
-        
     </application>
     <application>
     </application>
