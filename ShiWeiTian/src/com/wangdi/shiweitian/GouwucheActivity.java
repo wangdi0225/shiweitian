@@ -19,8 +19,10 @@ import android.widget.Toast;
 public class GouwucheActivity extends Activity {
 	private ListView listview;
 	private ImageView imageView;
+	private ImageView imageView2;
 	private SimpleAdapter simpleAdapter;
-	private TextView textview;
+	private TextView bianji_textView, quanxuan_anniu, jiesuan_textView,
+			heji_textView, biaoti_bianji;
 	private List<Map<String, Object>> list;
 
 	@Override
@@ -29,10 +31,21 @@ public class GouwucheActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_gouwuche);
+
 		imageView = (ImageView) findViewById(R.id.gouwuche_fanhui);
-		textview = (TextView) findViewById(R.id.bianji_textView);
+		imageView2 = (ImageView) findViewById(R.id.chuyi_back);
+
+		bianji_textView = (TextView) findViewById(R.id.bianji_textView);
+		quanxuan_anniu = (TextView) findViewById(R.id.quanxuan_anniu);
+		jiesuan_textView = (TextView) findViewById(R.id.jiesuan_textView);
+		heji_textView = (TextView) findViewById(R.id.heji_textView);
+		biaoti_bianji = (TextView) findViewById(R.id.biaoti_bianji);
+
 		imageView.setOnClickListener(clickListener);
-		textview.setOnClickListener(clickListener);
+		bianji_textView.setOnClickListener(clickListener);
+		
+		
+
 		gouwuche();
 		getData();
 
@@ -49,11 +62,20 @@ public class GouwucheActivity extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(GouwucheActivity.this, MainActivity.class);
 				startActivity(intent);
+
 				break;
+
 			case R.id.bianji_textView:
 				Toast.makeText(GouwucheActivity.this, "编辑", Toast.LENGTH_SHORT)
 						.show();
 				break;
+
+			case R.id.biaoti_bianji:
+				Toast.makeText(GouwucheActivity.this, "编辑", Toast.LENGTH_SHORT)
+						.show();
+
+				break;
+
 			default:
 				break;
 			}

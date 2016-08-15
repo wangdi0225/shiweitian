@@ -11,14 +11,14 @@
         android:layout_marginTop="10dp"
         android:background="@color/tianchongse" >
 
-        <RadioButton
-            android:id="@+id/xuanze_anniu"
+        <TextView
+            android:id="@+id/biaoti_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="芒果姐姐小厨房"
             android:textColor="@color/xuanlan"
-           android:drawableLeft="@drawable/sichu"
+            android:drawableLeft="@drawable/sichu"
             android:drawablePadding="5dp" />
 
         
@@ -54,6 +54,7 @@
                 android:src="@drawable/meishi" />
 
             <ImageButton
+                android:id="@+id/bofang_anniu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -80,14 +81,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/jiage"
-                android:textColor="@color/jiage"
+                android:textColor="#ff4e3c"
                 android:textSize="@string/jiage_size" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginTop="1dp"
         android:background="@color/tianchongse"
         android:orientation="horizontal" >
@@ -98,20 +99,24 @@
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/quxiao_dingdan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/kuangjia2"
             android:text="取消订单"
             android:textColor="@color/bianji" />
 
         <TextView
+            android:id="@+id/queren_fukuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/kuangjia2"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/kuangjia1"
             android:text="付款"
-            android:textColor="@color/bianji" />
+            android:textColor="#ffffff" />
     </LinearLayout>
     
 
