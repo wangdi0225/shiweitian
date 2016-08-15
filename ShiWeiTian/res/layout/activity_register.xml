@@ -39,7 +39,9 @@
             android:background="@drawable/login_user"
             android:hint="@string/phonenumb"
             android:paddingLeft="10dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+			android:maxLength="15"
+			/>
 
         <LinearLayout
             android:layout_width="262dp"
@@ -58,7 +60,7 @@
                	android:background="@null"
                 android:hint="@string/SMSyanz"
                 android:paddingLeft="10dp"
-               
+                android:maxLength="6"
                 android:textSize="16sp" />
            <Button 
                android:id="@+id/getSMS"
