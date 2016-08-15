@@ -63,7 +63,7 @@ public class ChuyiFragment extends Fragment {
 		listview1 = (ListView) v.findViewById(R.id.chuyi_listview2);
 		listview1.addHeaderView(header);
 		imageViewss = (ImageView) v.findViewById(R.id.chuyi_gouwuche);
-		imageView= (ImageView) v.findViewById(R.id.chuyi_image_spinner);
+		imageView = (ImageView) v.findViewById(R.id.chuyi_image_spinner);
 		imageView.setOnClickListener(onClickListener);
 		radioButtonsp = (RadioButton) header.findViewById(R.id.chuyi_shiping);
 		radioButtontw = (RadioButton) header.findViewById(R.id.chuyi_tuwen);
@@ -148,7 +148,7 @@ public class ChuyiFragment extends Fragment {
 		ChuyiAdapter2 chuyiAdapter = new ChuyiAdapter2(getActivity(),
 				R.layout.chuyi_item1, lists2);
 		listview1.setAdapter(chuyiAdapter);
-		listview1.setOnItemClickListener(onitemClickListener1);
+		listview1.setOnItemClickListener(onitemClickListener);
 	}
 
 	OnItemClickListener onitemClickListener = new OnItemClickListener() {
@@ -159,20 +159,6 @@ public class ChuyiFragment extends Fragment {
 			// TODO 自动生成的方法存根
 			Toast.makeText(getActivity(), "你点的第" + arg2 + "行",
 					Toast.LENGTH_SHORT).show();
-
-		}
-
-	};
-	OnItemClickListener onitemClickListener1 = new OnItemClickListener() {
-
-		@Override
-		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-				long arg3) {
-			// TODO 自动生成的方法存根
-			Intent intent=new Intent();
-			intent.setClass(getActivity(), ChuyiActivity.class);
-			startActivity(intent);
-
 		}
 
 	};
@@ -187,7 +173,7 @@ public class ChuyiFragment extends Fragment {
 				Toast.makeText(getActivity(), "搜索", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.chuyi_image_spinner:
-				spinner.setClickable(true);
+				spinner.performClick();
 				break;
 			default:
 				break;

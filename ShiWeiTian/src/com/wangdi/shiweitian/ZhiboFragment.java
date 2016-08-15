@@ -62,7 +62,11 @@ public class ZhiboFragment extends Fragment {
 			textViewgm = (TextView) arg1.findViewById(R.id.zhibo_goumai);
 			textViewjr.setOnClickListener(onClickListener);
 			textViewsc.setOnClickListener(onClickListener);
-			imageViewbfc.setOnClickListener(onClickListener);		
+			imageViewbfc.setOnClickListener(onClickListener);
+			/*
+			 * Intent intent = new Intent(); intent.setClass(getActivity(),
+			 * ChuyiActivity.class); startActivity(intent);
+			 */
 		}
 
 	};
