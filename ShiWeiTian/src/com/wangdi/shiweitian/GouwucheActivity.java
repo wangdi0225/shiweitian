@@ -30,7 +30,7 @@ public class GouwucheActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_gouwuche);
+		setContentView(R.layout.activity_gouwuche);   
 
 		imageView = (ImageView) findViewById(R.id.gouwuche_fanhui);
 		imageView2 = (ImageView) findViewById(R.id.chuyi_back);
@@ -56,7 +56,7 @@ public class GouwucheActivity extends Activity {
 
 		@Override
 		public void onClick(View arg0) {
-			// TODO 自动生成的方法存根
+			// TODO 自动生成的方法存根     
 			switch (arg0.getId()) {
 			case R.id.gouwuche_fanhui:
 				Intent intent = new Intent();
@@ -104,6 +104,8 @@ public class GouwucheActivity extends Activity {
 			map.put("neirong", "美味与要值得双重缴械，从舌尖到心底的惊艳诱惑。");
 			map.put("jiage", "¥ 168");
 			list.add(map);
+			
+			
 		}
 
 	}

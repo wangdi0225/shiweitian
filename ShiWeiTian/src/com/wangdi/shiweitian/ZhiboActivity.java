@@ -14,8 +14,9 @@ public class ZhiboActivity extends Activity {
 	Spinner spinner;
 	ArrayAdapter<String> arrayAdapter;
 	String strs[] = {"选择菜品类别","川菜","湘菜","粤菜","鲁菜"};
-    OnItemSelectedListener itemClickListener;
+    
 
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -28,9 +29,10 @@ public class ZhiboActivity extends Activity {
 		
 		Spinner spinner=(Spinner)findViewById(R.id.zhibo_spinner);
 		
+		
 		spinner.setAdapter(adapter);
 		
-		spinner.setOnItemSelectedListener(itemClickListener);
+		spinner.setOnItemSelectedListener(itemSelectedListener);
 		
 
 	}

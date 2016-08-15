@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/sichu"
+            android:background="@drawable/yuanbeijing"
             android:drawablePadding="5dp"
             android:padding="10dp"
             android:text="芒果姐姐小厨房"
@@ -48,9 +49,12 @@
 
             <ImageView
                 android:id="@+id/meishi_image"
-                android:layout_width="120dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="9.5dp"
+                android:layout_marginBottom="9.5dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
                 android:background="@drawable/meishi" />
 
             <ImageButton

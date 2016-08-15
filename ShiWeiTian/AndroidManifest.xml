@@ -53,8 +53,15 @@
         <activity
             android:name="com.wangdi.shiweitian.ChuyiActivity"
             android:launchMode="singleTask" />
+       
         <activity
             android:name="com.wangdi.shiweitian.GouwucheActivity"
+            android:launchMode="singleTask" />
+         <activity
+            android:name="com.wangdi.shiweitian.ZhiboActivity"
+            android:launchMode="singleTask" />
+          <activity
+            android:name="com.wangdi.shiweitian.QuanbuDingdanActivity"
             android:launchMode="singleTask" />
         
         
