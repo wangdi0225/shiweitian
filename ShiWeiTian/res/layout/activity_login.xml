@@ -127,6 +127,7 @@
         
 
         <EditText
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -148,6 +149,7 @@
            
 
             <EditText
+                android:id="@+id/password"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:hint="@string/password"
@@ -155,9 +157,23 @@
                 android:background="@drawable/login_user"
                 android:inputType="textPassword"
                 android:textColor="@color/heise"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:textSize="16sp" 
+                android:maxLength="15"
+                />
+           
 
+        </LinearLayout>
+		 <TextView 
+		     android:id="@+id/prompt"
+                android:layout_width="262dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/red"
+                android:layout_gravity="center_horizontal"
+                
+                />
+        
+        
         <RelativeLayout
             android:id="@+id/login"
             android:layout_width="262dp"
