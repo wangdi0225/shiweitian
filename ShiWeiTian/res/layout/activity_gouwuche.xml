@@ -56,7 +56,8 @@
         android:background="@color/tianchongse"
         android:orientation="horizontal" >
 
-        <RadioButton
+        <CheckBox
+            android:id="@+id/quanxuan_anniu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -67,6 +68,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/heji_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -76,6 +78,7 @@
             android:textColor="@color/neirong" />
 
         <TextView
+            android:id="@+id/jiesuan_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

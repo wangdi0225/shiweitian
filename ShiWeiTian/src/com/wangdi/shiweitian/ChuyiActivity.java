@@ -5,20 +5,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class ChuyiActivity extends Activity {
 	ListView listview;
 	ListView listview2;
 
+	
 	SimpleAdapter simpleAdapter;
 	SimpleAdapter simpleAdapter2;
 
 	List<Map<String, Object>> list;
 	List<Map<String, Object>> list2;
+	
+	TextView textview;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,10 @@ public class ChuyiActivity extends Activity {
 
 		listview.setAdapter(simpleAdapter);
 		listview2.setAdapter(simpleAdapter2);
+		
+		textview=(TextView)findViewById(R.id.chuyi_back);
+		
+		
 	}
 
 	public void chushi() {

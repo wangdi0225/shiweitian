@@ -33,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name="com.wangdi.shiweitian.MembersAcitivity"
             android:launchMode="singleTask" />
@@ -66,11 +67,16 @@
         <activity
             android:name="com.wangdi.shiweitian.GouwucheActivity"
             android:launchMode="singleTask" />
+<<<<<<< HEAD
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+=======
+        
+        
+>>>>>>> origin/huitingrui
     </application>
     <application>
     </application>

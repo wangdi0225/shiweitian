@@ -39,7 +39,7 @@ public class HttpTestActivitiy extends Activity {
 				StringBuilder builder = new StringBuilder();
 				try {
 					String httpHost = "http://192.168.15.11/index.php/Home/api/login";
-					String name = "username='dasdasd'&password='dasjd'";
+					String name = "username='wangdi'&password='wangdi0225'";
 					String urlName = httpHost + "?" + name;
 					URL url = new URL(urlName);
 					HttpURLConnection connection = (HttpURLConnection) url

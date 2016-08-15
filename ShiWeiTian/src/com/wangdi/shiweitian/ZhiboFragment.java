@@ -62,13 +62,7 @@ public class ZhiboFragment extends Fragment {
 			textViewgm = (TextView) arg1.findViewById(R.id.zhibo_goumai);
 			textViewjr.setOnClickListener(onClickListener);
 			textViewsc.setOnClickListener(onClickListener);
-			imageViewbfc.setOnClickListener(onClickListener);
-
-			Toast.makeText(getActivity(), "你点的第" + arg2 + "行",
-					Toast.LENGTH_SHORT).show();
-			Intent intent=new Intent();
-			intent.setClass(getActivity(), ChuyiActivity.class);
-			startActivity(intent);
+			imageViewbfc.setOnClickListener(onClickListener);		
 		}
 
 	};

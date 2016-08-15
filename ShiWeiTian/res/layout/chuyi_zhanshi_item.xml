@@ -57,15 +57,27 @@
         android:orientation="horizontal"
         android:paddingLeft="30dp"
         android:paddingRight="30dp" >
+	<LinearLayout android:layout_width="0dp" 
+	    android:layout_height="match_parent"
+	    android:layout_weight="1"
+	    android:orientation="horizontal"
+	    ><Spinner
+                android:id="@+id/chuyi_spinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null" />
 
-        <Spinner
-            android:id="@+id/chuyi_spinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@null" />
-
+            <ImageView
+                android:id="@+id/chuyi_image_spinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/xialajiantouwei" />
+"
+		</LinearLayout>
         <TextView
             android:id="@+id/chuyi_nanyidu"
             android:layout_width="0dp"

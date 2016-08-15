@@ -9,6 +9,7 @@
         android:layout_height="wrap_content" >
 
         <ImageView
+            android:id="@+id/zhibo_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -32,62 +33,64 @@
 
         <ImageView
             android:layout_width="120dp"
-            android:layout_height="100dp"
-            android:src="@drawable/flower" />
-        
-        <LinearLayout 
+            android:layout_height="120dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/meishi" />
+
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            
-            >
-            
-            <EditText 
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:hint=" 给你的直播写个标题吧！(不超过20字)"
-                android:background="@drawable/shurukuang"
-                />
-            
-            <EditText
-                android:layout_width="160dp"
-                android:layout_height="30dp"
-                android:hint=" 选择菜品的类别"
-                android:background="@drawable/shurukuang"
-                android:layout_marginTop="5dp"
-                
-                />
-            
-            
-            <TextView 
+                android:background="@drawable/shurukuang" >
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@null"
+                    android:hint="  写标题"
+                    android:textColor="#cccccc"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+             <Spinner
+                android:id="@+id/zhibo_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/zhibo_kuangjia"
-                android:text="内容提交"
-                android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                />
+                android:dropDownHorizontalOffset="30dp"
+                android:popupBackground="#436EEE"
+                android:spinnerMode="dropdown" />
             
+            
+
+            <TextView
+                android:id="@+id/neirong_anniu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/kuangjia1"
+                android:text="内容提交"
+                android:textColor="#ffffff" />
         </LinearLayout>
-        
-        
-        
-        
-        
-        
-        
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
         android:background="#000000"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp" >
+        android:orientation="vertical" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:layout_marginTop="40dp"
             android:orientation="horizontal" >
 
@@ -121,9 +124,10 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/kaishi_zhibo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/zhibo_kuangjia"
             android:gravity="center"
             android:text="开始直播"

@@ -23,6 +23,7 @@ public class ChangepasswordActivity extends Activity{
 		TextView promptsone,promptstwo;
 		Button complete;
 		
+		
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub

@@ -152,7 +152,7 @@
                 android:paddingLeft="10dp"
                 android:background="@drawable/login_user"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
+                android:textColor="@color/heise"
                 android:textSize="16sp" />
         </LinearLayout>
 

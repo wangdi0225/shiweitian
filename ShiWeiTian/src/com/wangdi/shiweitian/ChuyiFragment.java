@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -48,6 +49,7 @@ public class ChuyiFragment extends Fragment {
 	private ArrayAdapter<String> arrayadapter;
 	private TextView textViewnyd;
 	private TextView textViewrq;
+	private ImageView imageView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +63,8 @@ public class ChuyiFragment extends Fragment {
 		listview1 = (ListView) v.findViewById(R.id.chuyi_listview2);
 		listview1.addHeaderView(header);
 		imageViewss = (ImageView) v.findViewById(R.id.chuyi_gouwuche);
+		imageView= (ImageView) v.findViewById(R.id.chuyi_image_spinner);
+		imageView.setOnClickListener(onClickListener);
 		radioButtonsp = (RadioButton) header.findViewById(R.id.chuyi_shiping);
 		radioButtontw = (RadioButton) header.findViewById(R.id.chuyi_tuwen);
 		textViewnyd = (TextView) header.findViewById(R.id.chuyi_nanyidu);
@@ -144,7 +148,7 @@ public class ChuyiFragment extends Fragment {
 		ChuyiAdapter2 chuyiAdapter = new ChuyiAdapter2(getActivity(),
 				R.layout.chuyi_item1, lists2);
 		listview1.setAdapter(chuyiAdapter);
-		listview1.setOnItemClickListener(onitemClickListener);
+		listview1.setOnItemClickListener(onitemClickListener1);
 	}
 
 	OnItemClickListener onitemClickListener = new OnItemClickListener() {
@@ -159,6 +163,19 @@ public class ChuyiFragment extends Fragment {
 		}
 
 	};
+	OnItemClickListener onitemClickListener1 = new OnItemClickListener() {
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			// TODO 自动生成的方法存根
+			Intent intent=new Intent();
+			intent.setClass(getActivity(), ChuyiActivity.class);
+			startActivity(intent);
+
+		}
+
+	};
 	OnClickListener onClickListener = new OnClickListener() {
 
 		@SuppressLint({ "ResourceAsColor", "NewApi" })
@@ -168,6 +185,9 @@ public class ChuyiFragment extends Fragment {
 			switch (arg0.getId()) {
 			case R.id.chuyi_gouwuche:
 				Toast.makeText(getActivity(), "搜索", Toast.LENGTH_SHORT).show();
+				break;
+			case R.id.chuyi_image_spinner:
+				spinner.setClickable(true);
 				break;
 			default:
 				break;
