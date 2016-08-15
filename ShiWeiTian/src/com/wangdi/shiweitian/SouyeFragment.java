@@ -106,13 +106,13 @@ public class SouyeFragment extends Fragment {
 		@Override
 		public void onClick(View arg0) {
 			// TODO 自动生成的方法存根
+			Intent intent = new Intent();
 			switch (arg0.getId()) {
 			case R.id.souye_shousuo:
-				Toast.makeText(getActivity(), "搜索", Toast.LENGTH_SHORT).show();
+				intent.setClass(getActivity(), SousuoActivity.class);
+				startActivity(intent);
 				break;
 			case R.id.souye_gouwuche:
-				Toast.makeText(getActivity(), "购物车", Toast.LENGTH_SHORT).show();
-			Intent intent=new Intent();
 				intent.setClass(getActivity(), GouwucheActivity.class);
 				startActivity(intent);
 				break;

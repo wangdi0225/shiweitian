@@ -33,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.wangdi.shiweitian.MembersAcitivity"
             android:launchMode="singleTask" />
@@ -67,7 +66,9 @@
         <activity
             android:name="com.wangdi.shiweitian.GouwucheActivity"
             android:launchMode="singleTask" />
-
+        <activity
+            android:name="com.wangdi.shiweitian.SousuoActivity"
+            android:launchMode="singleTask" />
     </application>
     <application>
     </application>
