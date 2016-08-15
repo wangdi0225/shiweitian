@@ -55,7 +55,6 @@
                 android:layout_centerVertical="true"
                 android:background="@null"
                 android:src="@drawable/shipingbofang2" />
-
         </RelativeLayout>
 
         <LinearLayout
@@ -91,26 +90,34 @@
                 android:layout_weight="1"
                 android:orientation="horizontal" >
 
-                <TextView
+                <CheckBox
                     android:id="@+id/zhibo_jiaru"
                     android:layout_width="0dp"
-                    android:layout_height="fill_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="false"
                     android:drawableLeft="@drawable/gouwuchewei"
                     android:drawablePadding="5dp"
                     android:gravity="center_vertical"
+                    android:singleLine="true"
                     android:text="加入"
                     android:textColor="#856b5c"
                     android:textSize="12sp" />
 
-                <TextView
+                <CheckBox
                     android:id="@+id/zhibo_soucang"
                     android:layout_width="0dp"
-                    android:layout_height="fill_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="false"
                     android:drawableLeft="@drawable/shoucangwei"
                     android:drawablePadding="5dp"
                     android:gravity="center_vertical"
+                    android:singleLine="true"
                     android:text="2683"
                     android:textColor="#856b5c"
                     android:textSize="12sp" />
@@ -118,7 +125,7 @@
                 <TextView
                     android:id="@+id/zhibo_goumai"
                     android:layout_width="0dp"
-                    android:layout_height="fill_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/anniubeijing1"
                     android:gravity="center_horizontal"

@@ -61,8 +61,6 @@ public class ZhiboAdapter extends BaseAdapter {
 		}
 		ImageView imageView = (ImageView) arg1
 				.findViewById(R.id.zhibo_bofangcai);
-		TextView textView1 = (TextView) arg1.findViewById(R.id.zhibo_jiaru);
-		TextView textView2 = (TextView) arg1.findViewById(R.id.zhibo_soucang);
 		TextView textView3 = (TextView) arg1
 				.findViewById(R.id.zhibo_chufangname);
 		TextView textview_name1 = (TextView) arg1
@@ -72,14 +70,6 @@ public class ZhiboAdapter extends BaseAdapter {
 		Zhibopriduct products = lists.get(arg0);
 		imageView.setBackgroundDrawable(context.getResources().getDrawable(
 				products.getImge()));
-		Drawable drawable = context.getResources().getDrawable(
-				products.getImgjr());
-		textView1.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null,
-				null);
-		Drawable drawable1 = context.getResources().getDrawable(
-				products.getImgsc());
-		textView2.setCompoundDrawablesWithIntrinsicBounds(drawable1, null,
-				null, null);
 		textview_name1.setText(products.getName());
 		textview_name2.setText(products.getNeirong());
 		textView3.setText(products.getChufang());

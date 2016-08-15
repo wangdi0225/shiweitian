@@ -4,8 +4,7 @@ public class Zhibopriduct {
 	int imge;
 	String name;
 	String neirong;
-	int imgjr;
-	int imgsc;
+	
 	String chufang;
 
 	public String getChufang() {
@@ -40,19 +39,5 @@ public class Zhibopriduct {
 		this.neirong = neirong;
 	}
 
-	public int getImgjr() {
-		return imgjr;
-	}
 
-	public void setImgjr(int imgjr) {
-		this.imgjr = imgjr;
-	}
-
-	public int getImgsc() {
-		return imgsc;
-	}
-
-	public void setImgsc(int imgsc) {
-		this.imgsc = imgsc;
-	}
 }
