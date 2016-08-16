@@ -80,7 +80,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/login_othertext"
-        android:layout_marginBottom="79dp" >
+        android:layout_marginBottom="69dp" >
 
         <TextView
             android:id="@+id/forgotpassword"
@@ -127,6 +127,7 @@
         
 
         <EditText
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -134,7 +135,9 @@
             android:background="@drawable/login_user"
             android:hint="@string/userorphone"
             android:paddingLeft="10dp"
-            android:textSize="16sp" />
+            android:textSize="16sp" 
+            android:maxLength="15"
+            />
 
         <LinearLayout
             android:layout_width="262dp"
@@ -146,16 +149,31 @@
            
 
             <EditText
+                android:id="@+id/password"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:hint="@string/password"
                 android:paddingLeft="10dp"
                 android:background="@drawable/login_user"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:textColor="@color/heise"
+                android:textSize="16sp" 
+                android:maxLength="15"
+                />
+           
 
+        </LinearLayout>
+		 <TextView 
+		     android:id="@+id/prompt"
+                android:layout_width="262dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/red"
+                android:layout_gravity="center_horizontal"
+                
+                />
+        
+        
         <RelativeLayout
             android:id="@+id/login"
             android:layout_width="262dp"

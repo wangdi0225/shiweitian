@@ -67,8 +67,13 @@
             android:name="com.wangdi.shiweitian.GouwucheActivity"
             android:launchMode="singleTask" />
         <activity
+
             android:name="com.wangdi.shiweitian.ZhiboActivity"
+            android:name="com.wangdi.shiweitian.SousuoActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name="com.wangdi.shiweitian.Resgiterjump"
+ />
     </application>
     <application>
     </application>

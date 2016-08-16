@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -48,6 +49,7 @@ public class ChuyiFragment extends Fragment {
 	private ArrayAdapter<String> arrayadapter;
 	private TextView textViewnyd;
 	private TextView textViewrq;
+	private ImageView imageView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +63,8 @@ public class ChuyiFragment extends Fragment {
 		listview1 = (ListView) v.findViewById(R.id.chuyi_listview2);
 		listview1.addHeaderView(header);
 		imageViewss = (ImageView) v.findViewById(R.id.chuyi_gouwuche);
+		imageView = (ImageView) v.findViewById(R.id.chuyi_image_spinner);
+		imageView.setOnClickListener(onClickListener);
 		radioButtonsp = (RadioButton) header.findViewById(R.id.chuyi_shiping);
 		radioButtontw = (RadioButton) header.findViewById(R.id.chuyi_tuwen);
 		textViewnyd = (TextView) header.findViewById(R.id.chuyi_nanyidu);
@@ -155,7 +159,6 @@ public class ChuyiFragment extends Fragment {
 			// TODO 自动生成的方法存根
 			Toast.makeText(getActivity(), "你点的第" + arg2 + "行",
 					Toast.LENGTH_SHORT).show();
-
 		}
 
 	};
@@ -165,9 +168,14 @@ public class ChuyiFragment extends Fragment {
 		@Override
 		public void onClick(View arg0) {
 			// TODO 自动生成的方法存根
+			Intent intent = new Intent();
 			switch (arg0.getId()) {
 			case R.id.chuyi_gouwuche:
-				Toast.makeText(getActivity(), "搜索", Toast.LENGTH_SHORT).show();
+				intent.setClass(getActivity(), SousuoActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.chuyi_image_spinner:
+				spinner.performClick();
 				break;
 			default:
 				break;

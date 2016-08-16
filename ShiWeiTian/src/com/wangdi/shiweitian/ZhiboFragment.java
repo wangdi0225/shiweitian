@@ -8,6 +8,7 @@ import com.wangdi.shiweitian.product.Zhibopriduct;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.CheckBox;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -26,19 +30,21 @@ public class ZhiboFragment extends Fragment {
 	ImageView imageView;
 	ImageButton imageButton;
 	ImageView imageViewbfc;
-	TextView textViewjr;
-	TextView textViewsc;
+	CheckBox textViewjr;
+	CheckBox textViewsc;
 	TextView textViewgm;
 	ListView listView;
 	List<Zhibopriduct> lists;
 	Zhibopriduct zhibopriduct;
 	ZhiboAdapter adapter;
-
+	ImageView imageViewss;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO 自动生成的方法存根
 		View v = inflater.inflate(R.layout.zhibo, container, false);
 		listView = (ListView) v.findViewById(R.id.zhibo_listview);
+		imageViewss=(ImageView) v.findViewById(R.id.zhibo_sousuo);
+		imageViewss.setOnClickListener(onClickListener);
 		getDate();
 		ZhiboAdapter adapter = new ZhiboAdapter(getActivity(),
 				R.layout.zhibo_item1, lists);
@@ -55,33 +61,26 @@ public class ZhiboFragment extends Fragment {
 			// TODO 自动生成的方法存根
 			imageView = (ImageView) arg1.findViewById(R.id.zhibo_sousuo);
 			imageButton = (ImageButton) arg1
-					.findViewById(R.id.zhibo_bofangimageButton);
+					.findViewById(R.id.zhibo_bofangimageButton);		
 			imageViewbfc = (ImageView) arg1.findViewById(R.id.zhibo_bofangcai);
-			textViewjr = (TextView) arg1.findViewById(R.id.zhibo_jiaru);
-			textViewsc = (TextView) arg1.findViewById(R.id.zhibo_soucang);
+			textViewjr = (CheckBox) arg1.findViewById(R.id.zhibo_jiaru);
+			textViewsc = (CheckBox) arg1.findViewById(R.id.zhibo_soucang);
 			textViewgm = (TextView) arg1.findViewById(R.id.zhibo_goumai);
-			textViewjr.setOnClickListener(onClickListener);
-			textViewsc.setOnClickListener(onClickListener);
+			textViewjr.setOnCheckedChangeListener(onCheckedChangeListener);
+			textViewsc.setOnCheckedChangeListener(onCheckedChangeListener);
 			imageViewbfc.setOnClickListener(onClickListener);
-
-			Toast.makeText(getActivity(), "你点的第" + arg2 + "行",
-					Toast.LENGTH_SHORT).show();
-			Intent intent=new Intent();
-			intent.setClass(getActivity(), ChuyiActivity.class);
-			startActivity(intent);
+			textViewgm.setOnClickListener(onClickListener);
 		}
 
 	};
 
 	public void getDate() {
 		lists = new ArrayList<Zhibopriduct>();
-		for (int i = 0; i < 5; i++) {	
+		for (int i = 0; i < 5; i++) {
 			zhibopriduct = new Zhibopriduct();
 			zhibopriduct.setImge(R.drawable.timg1);
 			zhibopriduct.setName("龙虾香蕉香菜根");
 			zhibopriduct.setNeirong("美味与颜值的双重缴械，从舌尖到心底的惊艳诱惑");
-			zhibopriduct.setImgjr(R.drawable.gouwuchewei);
-			zhibopriduct.setImgsc(R.drawable.shoucangwei);
 			zhibopriduct.setChufang("芒果姐姐小厨房");
 			lists.add(zhibopriduct);
 
@@ -89,33 +88,64 @@ public class ZhiboFragment extends Fragment {
 			zhibopriduct.setImge(R.drawable.timg3);
 			zhibopriduct.setName("鸭肠辣椒黄瓜条");
 			zhibopriduct.setNeirong("美味与颜值的双重缴械，从舌尖到心底的惊艳诱惑");
-			zhibopriduct.setImgjr(R.drawable.gouwuchedian);
-			zhibopriduct.setImgsc(R.drawable.shoucangdian);
 			zhibopriduct.setChufang("黄瓜姐姐小厨房");
 			lists.add(zhibopriduct);
 		}
 	}
 
+	OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener() {
+
+		@Override
+		public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+			// TODO 自动生成的方法存根
+			switch (arg0.getId()) {
+			case R.id.zhibo_jiaru:
+				if (arg1 == true) {
+					Drawable drawable = getActivity().getResources()
+							.getDrawable(R.drawable.gouwuchedian);
+					textViewjr.setCompoundDrawablesWithIntrinsicBounds(
+							drawable, null, null, null);
+				} else {
+					Drawable drawable = getActivity().getResources()
+							.getDrawable(R.drawable.gouwuchewei);
+					textViewjr.setCompoundDrawablesWithIntrinsicBounds(
+							drawable, null, null, null);
+				}
+				break;
+			case R.id.zhibo_soucang:
+				if (arg1 == true) {
+					Drawable drawable = getActivity().getResources()
+							.getDrawable(R.drawable.shoucangdian);
+					textViewsc.setCompoundDrawablesWithIntrinsicBounds(
+							drawable, null, null, null);
+				} else {
+					Drawable drawable = getActivity().getResources()
+							.getDrawable(R.drawable.shoucangwei);
+					textViewsc.setCompoundDrawablesWithIntrinsicBounds(
+							drawable, null, null, null);
+				}
+				break;
+			default:
+				break;
+			}
+		}
+	};
 	OnClickListener onClickListener = new OnClickListener() {
 
+		@SuppressWarnings("deprecation")
 		@SuppressLint({ "ResourceAsColor", "NewApi" })
 		@Override
 		public void onClick(View arg0) {
 			// TODO 自动生成的方法存根
+			Intent intent = new Intent();
 			switch (arg0.getId()) {
 			case R.id.zhibo_sousuo:
-				Toast.makeText(getActivity(), "搜索", Toast.LENGTH_SHORT).show();
-				break;
-			case R.id.zhibo_goumai:
-				Toast.makeText(getActivity(), "购买", Toast.LENGTH_SHORT).show();
-				break;
-			case R.id.zhibo_jiaru:
-				Intent intent=new Intent();
-				intent.setClass(getActivity(), GouwucheActivity.class);
+				intent.setClass(getActivity(), SousuoActivity.class);
 				startActivity(intent);
 				break;
-			case R.id.zhibo_soucang:
-				Toast.makeText(getActivity(), "收藏", Toast.LENGTH_SHORT).show();
+			case R.id.zhibo_goumai:
+				intent.setClass(getActivity(), GouwucheActivity.class);
+				startActivity(intent);
 				break;
 			default:
 				break;
