@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@null"
-                android:src="@drawable/bofang" />
+                android:src="@drawable/shipingbofang2" />
         </RelativeLayout>
 
         <LinearLayout
