@@ -13,12 +13,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import cn.smssdk.EventHandler;
-import cn.smssdk.SMSSDK;
-import cn.smssdk.utils.SMSLog;
-
-import com.wangdi.shiweitian.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,6 +26,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
+import cn.smssdk.utils.SMSLog;
 
 
 public class ForgetpasswordActivity	extends Activity {

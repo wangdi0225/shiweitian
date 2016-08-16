@@ -37,7 +37,7 @@ public class ZhiboFragment extends Fragment {
 	List<Zhibopriduct> lists;
 	Zhibopriduct zhibopriduct;
 	ZhiboAdapter adapter;
-	ImageView imageViewss;
+	ImageView imageViewss; 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO 自动生成的方法存根
