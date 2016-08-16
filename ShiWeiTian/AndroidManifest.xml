@@ -73,7 +73,5 @@
             android:name="com.wangdi.shiweitian.Resgiterjump"
             android:launchMode="singleTask" />
     </application>
-    <application>
-    </application>
 
 </manifest>

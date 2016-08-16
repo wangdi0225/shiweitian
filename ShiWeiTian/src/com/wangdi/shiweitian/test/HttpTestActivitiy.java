@@ -32,7 +32,7 @@ public class HttpTestActivitiy extends Activity {
 	}
 
 	String str;
-	public void login() {
+	public void login() {	
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
