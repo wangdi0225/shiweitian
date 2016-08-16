@@ -27,7 +27,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sina.weibo.sdk.auth.AuthInfo;
 import com.wangdi.shiweitian.R;
+import com.wangdi.shiweitian.product.Constants;
 
 
 public class LoginActivity extends Activity {
@@ -35,6 +37,7 @@ public class LoginActivity extends Activity {
 	TextView  forgotpassword, registernow,prompt;
 	ImageView loginqq, loginweixing, loginweibo;
 	EditText username,password;
+	private AuthInfo mAuthInfo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,9 @@ public class LoginActivity extends Activity {
 		registernow.setOnClickListener(onClickListener);
 		login.setOnClickListener(onClickListener);
 
+		
+		mAuthInfo = new AuthInfo(this, Constants.APP_KEY, 
+				Constants.REDIRECT_URL, Constants.SCOPE);
 	}
 
 	OnClickListener onClickListener = new OnClickListener() {

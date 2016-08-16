@@ -1,5 +1,16 @@
 package com.wangdi.shiweitian;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import cn.smssdk.EventHandler;
@@ -24,7 +35,7 @@ import android.widget.Toast;
 
 
 public class ForgetpasswordActivity	extends Activity {
-		TextView back;
+		TextView back,promptone;
 		EditText phonenumb,code;
 		Button getsms,next;
 		
@@ -37,6 +48,7 @@ public class ForgetpasswordActivity	extends Activity {
 			setContentView(R.layout.activity_forgetpassword);
 			back=(TextView) findViewById(R.id.back);
 			phonenumb=(EditText) findViewById(R.id.phonenumb);
+			promptone=(TextView) findViewById(R.id.promptsone);
 			code=(EditText) findViewById(R.id.code);
 			getsms=(Button) findViewById(R.id.getSMS);
 			next=(Button) findViewById(R.id.next);
@@ -72,7 +84,8 @@ public class ForgetpasswordActivity	extends Activity {
 					back();
 					break;
 				case R.id.getSMS:
-					getsms(phonenumb.getText().toString());
+					read(phonenumb.getText().toString());
+				
 					break;
 				case R.id.next:
 					SMSSDK.submitVerificationCode("86", phString, code.getText().toString());
@@ -86,6 +99,7 @@ public class ForgetpasswordActivity	extends Activity {
 		};
 		//下一步页面跳转方法
 		public void next(){
+			phString=phonenumb.getText().toString();
 			Intent intent= new Intent();
 				intent.putExtra("phonenumb", phString);
 				intent.setClass(ForgetpasswordActivity.this, ChangepasswordActivity.class);
@@ -105,15 +119,9 @@ public class ForgetpasswordActivity	extends Activity {
 		//发送短信
 		String phString;
 		public void getsms(String str){
-			if(isMobileNO(str)){
-				if(judge(str)){
 				SMSSDK.getVerificationCode("86",str);
 				phString=str;
-				}
-			}else{
-				Toast.makeText(ForgetpasswordActivity.this, "输入的电话号码格式错误",Toast.LENGTH_SHORT).show();
 				
-			}
 		}
 		
 		Handler mHandler = new Handler()
@@ -160,32 +168,81 @@ public class ForgetpasswordActivity	extends Activity {
 		
 		
 		
-	
-		
-		
-		/** 
-		 * 验证手机格式 
-		 */  
-		public static boolean isMobileNO(String mobiles) {  
-		    /* 
-		    移动：134、135、136、137、138、139、150、151、157(TD)、158、159、187、188 
-		    联通：130、131、132、152、155、156、185、186 
-		    电信：133、153、180、189、（1349卫通） 
-		    总结起来就是第一位必定为1，第二位必定为3或5或8，其他位置的可以为0-9 
-		    */  
-		 String telRegex = "[1][358]\\d{9}";//"[1]"代表第1位为数字1，"[358]"代表第二位可以为3、5、8中的一个，"\\d{9}"代表后面是可以是0～9的数字，有9位。  
-		 if (TextUtils.isEmpty(mobiles)) {//如果该参数为空或""
-			 return false;  }
-		  else {
-			   return mobiles.matches(telRegex); 
-		  } 
-		   }  
-		
-		///判断手机号是否为已注册用户方法
-		public boolean judge(String str){
-			return true;
-			
+		String str1;
+		public void read(final String username) {
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					
+					StringBuilder builder = new StringBuilder();
+					try {
+						String httpHost = "http://192.168.1.152/index.php/Home/api/read";
+						String name = "username="+username;
+						String urlName = httpHost + "?" + name;
+						URL url = new URL(urlName);
+						HttpURLConnection connection = (HttpURLConnection) url
+								.openConnection();
+						connection.setConnectTimeout(5000);
+						connection.setRequestProperty("accept", "*/*");// 设置客户端接受那些类型的信息，通配符代表接收所有类型的数据
+						connection.setRequestProperty("connection", "Keep-Alive");// 保持长链接
+						connection
+								.setRequestProperty("user-agent",
+										"Mozilla/4.0(compatible;MSIE 6.0;Windows NT5.1;SV1)");// 设置浏览器代理
+						connection
+								.setRequestProperty("accept-charset", "utf-8;GBK");// 客户端接受的字符集
+						connection.connect();// 建立连接
+						InputStream inputStream = connection.getInputStream();
+						Map<String, List<String>> headers = connection
+								.getHeaderFields();
+						for (String key : headers.keySet()) {
+							System.out.println(key + "----" + headers.get(key));
+
+						}
+						BufferedReader bufferedReader = new BufferedReader(
+								new InputStreamReader(inputStream));
+						String line = bufferedReader.readLine();
+						while (line != null && line.length() > 0) {
+							builder.append(line);
+							line = bufferedReader.readLine();
+						}
+						bufferedReader.close();
+						inputStream.close();
+						Log.i("builder-----", builder.toString());
+						str1 = builder.toString();
+						phoneHandler.sendEmptyMessage(0);
+						} catch (MalformedURLException e) {
+						// TODO 自动生成的 catch 块
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO 自动生成的 catch 块
+						e.printStackTrace();
+					}
+				}
+			}).start();
 		}
+		Handler phoneHandler = new Handler() {  
+	        public void handleMessage(Message msg) {   
+	        	try {
+	    			JSONObject jsonObject = new JSONObject(str1);
+	    			int status = jsonObject.getInt("status");
+	    			String message = jsonObject.getString("message");
+	    			if(status==2){
+	    			promptone.setText(" ");
+	    			getsms(phonenumb.getText().toString());
+	    			}else{
+	    			promptone.setText("没有该账号");
+	    			}
+	    			
+	    		} catch (JSONException e) {
+	    			// TODO 自动生成的 catch 块
+	    			e.printStackTrace();
+	    		}
+	            
+	        }   
+	   };
+		
+		
+	
 		
 		
 }
