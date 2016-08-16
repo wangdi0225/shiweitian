@@ -58,14 +58,37 @@
                     android:textColor="#cccccc"
                     android:textSize="12dp" />
             </LinearLayout>
-
-             <Spinner
-                android:id="@+id/zhibo_spinner"
-                android:layout_width="wrap_content"
+            
+             <RelativeLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:dropDownHorizontalOffset="30dp"
-                android:popupBackground="#436EEE"
-                android:spinnerMode="dropdown" />
+                android:id="@+id/zhibo"
+                 >
+
+                <Spinner
+                    android:id="@+id/leibie_spinner"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/shurukuang"
+                    android:hint="  选择菜品"
+                    android:textColor="#cccccc"
+                    android:textSize="12dp" />
+
+                <ImageButton
+                    android:id="@+id/xiala_jiantou"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/leibie_spinner"
+                    android:background="@drawable/shurukuang"
+                    android:padding="5dp"
+                    android:src="@drawable/xialajiantoudian" />
+            </RelativeLayout>
+
+             
             
             
 

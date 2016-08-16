@@ -44,7 +44,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="1" >
+            android:layout_weight="0.77" >
 
             <ImageView
                 android:id="@+id/meishi_image"
@@ -56,9 +56,12 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_alignRight="@+id/meishi_image"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="34dp"
                 android:background="@null"
                 android:src="@drawable/shipingbofang2" />
+
         </RelativeLayout>
 
         <LinearLayout
