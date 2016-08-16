@@ -4,39 +4,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
-import com.wangdi.shiweitian.MyListView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -68,9 +60,11 @@ public class SouyeFragment extends Fragment {
 		viewGroup = (LinearLayout) header.findViewById(R.id.viewGroup);
 		listview = (ListView) v.findViewById(R.id.souye_listview);
 		listview.addHeaderView(header);
+		
 		SimpleAdapter adapter = new SimpleAdapter(getActivity(), getData(),
 				R.layout.imag, new String[] { "iamg" },
 				new int[] { R.id.img_view });
+		
 		listview.setAdapter(adapter);
 		listview.setOnItemClickListener(onitemClickListener);
 		imageViewss = (ImageView) v.findViewById(R.id.souye_shousuo);
@@ -85,6 +79,7 @@ public class SouyeFragment extends Fragment {
 		flipper.startFlipping();
 		fillGuanggao();
 		return v;
+		
 	}
 
 	OnItemClickListener onitemClickListener = new OnItemClickListener() {
