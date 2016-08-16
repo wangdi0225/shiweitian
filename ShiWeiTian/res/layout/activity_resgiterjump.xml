@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/becautiful_ourflowers"
+    >
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_weight="20"
+	    android:layout_height="0dp"
+	    />
+<RelativeLayout 
+    android:layout_height="0dp"
+    android:layout_weight="7"
+    android:layout_width="fill_parent"
+    >
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="fill_parent"
+        
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/speak_follow"
+        android:text="                                                       您的初始密码为123456,您可以在用户中心更改密码"
+        android:textColor="@color/red"
+        android:textSize="18sp" />
+
+</RelativeLayout>
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_weight="10"
+	    android:layout_height="0dp"
+	    />
+</LinearLayout>

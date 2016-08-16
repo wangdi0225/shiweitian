@@ -15,11 +15,12 @@ import android.widget.Spinner;
  * Created by Administrator on 2016/8/8 0008.
  */
 public class Release_Video extends Fragment implements OnClickListener {
-	
+
 	Button sc_video;
 	ImageButton ib_zl, ib_nd;
 	Spinner sp_zl, sp_nd;
-	ArrayAdapter aa_zl,aa_nd;
+	@SuppressWarnings("rawtypes")
+	ArrayAdapter aa_zl, aa_nd;
 	View view;
 
 	@Override
@@ -48,11 +49,12 @@ public class Release_Video extends Fragment implements OnClickListener {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void chushi() {
 		sp_zl = (Spinner) view.findViewById(R.id.sp_zl);
 		sp_nd = (Spinner) view.findViewById(R.id.sp_nd);
 		ib_zl = (ImageButton) view.findViewById(R.id.ib_zl);
-		ib_nd = (ImageButton) view.findViewById(R.id.ib_nd);	
+		ib_nd = (ImageButton) view.findViewById(R.id.ib_nd);
 		String[] str1 = { "选择菜系种类", "川菜", "粤菜", "湘菜", "鲁菜", "闽菜", "苏菜", "浙菜",
 				"徽菜" };
 		String[] str2 = { "困难", "一般", "简单" };

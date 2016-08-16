@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-     <RelativeLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -27,34 +27,39 @@
             android:textSize="22sp" />
     </RelativeLayout>
 
+       <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="horizontal" />
+ 
+    
     <RadioGroup
         android:id="@+id/dingdan_radioGroup"
         android:layout_width="fill_parent"
         android:layout_height="32dp"
-        
-        android:orientation="horizontal" 
-        android:paddingTop="13dp">
+        android:orientation="horizontal"
+        android:paddingTop="13dp" >
 
         <RadioButton
             android:id="@+id/dfukuan_button"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-           android:paddingLeft="15dp"
-           android:button="@null"
             android:layout_weight="1"
+            android:button="@null"
+            android:paddingLeft="15dp"
             android:text="待付款"
             android:textColor="@color/bianji"
-            android:textSize="16sp" 
-            />
-        
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/dpingjia_button"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:layout_weight="1"
             android:button="@null"
             android:paddingLeft="15dp"
-            android:layout_weight="1"
             android:text="待评价"
             android:textSize="16sp" />
 
@@ -62,9 +67,9 @@
             android:id="@+id/dshouhuo_button"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:paddingLeft="15dp"
-            android:button="@null"
             android:layout_weight="1"
+            android:button="@null"
+            android:paddingLeft="15dp"
             android:text="待收货"
             android:textSize="16sp" />
 
@@ -72,29 +77,31 @@
             android:id="@+id/dfahuo_button"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:paddingLeft="15dp"
-            android:button="@null"
             android:layout_weight="1"
+            android:button="@null"
+            android:paddingLeft="15dp"
             android:text="待发货"
             android:textSize="16sp" />
     </RadioGroup>
     
-   <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <ListView 
+        android:id="@+id/quanbu_listView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal" />
-   
-  <!--  <LinearLayout 
+        android:layout_height="wrap_content"
+        
+        ></ListView>
+    
+    
+
+  
+    <!--
+        <LinearLayout 
        android:id="@+id/android_linearLayout"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:orientation="vertical"
        
-       ></LinearLayout> -->
-   
-   
-
-    
+       ></LinearLayout>
+    -->
 
 </LinearLayout>

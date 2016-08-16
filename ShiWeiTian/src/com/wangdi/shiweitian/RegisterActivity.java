@@ -40,7 +40,7 @@ public class RegisterActivity extends Activity {
 		CheckBox checkbox;
 		EditText phonenumb,sms;
 		private boolean check;
-		private boolean checkphone=false;
+		
 		private static String APPKEY="15e33a34bd368";
 		private static String APPSECRET="fcabe53739edca54187d1604b186fbdf";
 		@Override
@@ -100,14 +100,14 @@ public class RegisterActivity extends Activity {
 					break;
 				case R.id.getSMS:
 					read(phonenumb.getText().toString());
-					if(checkphone){
-						getSMS(phonenumb.getText().toString());	
-					}
+				
+						
+					
 					
 					break;
 				case R.id.register:
 					saveuser();
-					
+				
 					break;
 
 				default:
@@ -208,7 +208,7 @@ public class RegisterActivity extends Activity {
 		//写入用户数据方法
 		public void go_user(){
 			Intent intent =new Intent();
-			intent.setClass(RegisterActivity.this, LoginActivity.class);
+			intent.setClass(RegisterActivity.this, Resgiterjump.class);
 			startActivity(intent);
 			finish();
 			
@@ -278,7 +278,7 @@ public class RegisterActivity extends Activity {
 	    			prompt.setText("该手机已注册");
 	    			}else{
 	    			prompt.setText(" ");
-	    			checkphone=true;
+	    			getSMS(phonenumb.getText().toString());	
 	    			}
 	    			
 	    		} catch (JSONException e) {

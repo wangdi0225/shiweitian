@@ -7,17 +7,22 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.wangdi.shiweitian.adapter.MyAdapter;
 
 public class QuanbuDingdanActivity extends Activity {
 	ListView listview;
-	SimpleAdapter simpleAdpter;
+//	SimpleAdapter simpleAdpter;
+	MyAdapter myAdapter;
+	
 	
 	ArrayList<Fragment> fragmentList;
 	ViewPager viewPager;
@@ -48,9 +53,17 @@ public class QuanbuDingdanActivity extends Activity {
 
 		setContentView(R.layout.activity_quanbu_dingdan); // 布局listView
 
-		
+		radioButtonfukuan = (RadioButton) findViewById(R.id.dfukuan_button);
+		radioButtonpingjia = (RadioButton) findViewById(R.id.dpingjia_button);
+		radioButtonshouhuo = (RadioButton) findViewById(R.id.dshouhuo_button);
+		radioButtonfahuo = (RadioButton) findViewById(R.id.dfahuo_button);
 
-		listview.setAdapter(simpleAdpter);
+		getData();
+
+	//	myAdapter=new MyAdapter(getSupportFragmentManager(),fragmentList);
+		
+		
+	//	listview.setAdapter(myAdapter);
 
 		imageButton = (ImageButton) findViewById(R.id.bofang_anniu);
 
@@ -58,16 +71,16 @@ public class QuanbuDingdanActivity extends Activity {
 		queren_fukuan = (TextView) findViewById(R.id.queren_fukuan);
 
 		
-		
-		radioButtonfukuan = (RadioButton) findViewById(R.id.dfukuan_button);
-		radioButtonpingjia = (RadioButton) findViewById(R.id.dpingjia_button);
-		radioButtonshouhuo = (RadioButton) findViewById(R.id.dshouhuo_button);
-		radioButtonfahuo = (RadioButton) findViewById(R.id.dfahuo_button);
-
-		
 		radioGroup=(RadioGroup)findViewById(R.id.dingdan_radioGroup);
+	//	radioGroup.setOnCheckedChangeListener(onCheckedChangeListener);
 		
-		getData();
+		
+		viewPager=(ViewPager)findViewById(R.id.android_viewPager);
+	    viewPager.setAdapter(myAdapter);
+		
+		
+		
+		
 		
 	}
 
@@ -129,7 +142,6 @@ public class QuanbuDingdanActivity extends Activity {
 		  
 		  
 	}
-	
 	
 	
 

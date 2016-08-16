@@ -67,7 +67,11 @@ public class LoginActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.login:
-				login();
+				Intent intent = new Intent();
+				intent.setClass(LoginActivity.this, MainActivity.class);
+				startActivity(intent);
+				
+				//login();
 				break;
 			
 				

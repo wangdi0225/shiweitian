@@ -84,6 +84,7 @@ public class ForgetpasswordActivity	extends Activity {
 		//下一步页面跳转方法
 		public void next(){
 			Intent intent= new Intent();
+				intent.putExtra("phonenumb", phString);
 				intent.setClass(ForgetpasswordActivity.this, ChangepasswordActivity.class);
 				startActivity(intent);
 				finish();
