@@ -109,7 +109,6 @@
         android:layout_height="fill_parent"
         android:layout_marginTop="10dp"
         android:background="@drawable/beijing_ms"
-        
         android:orientation="vertical" >
 
         

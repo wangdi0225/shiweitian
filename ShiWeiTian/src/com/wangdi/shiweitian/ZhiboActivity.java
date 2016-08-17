@@ -48,25 +48,23 @@ public class ZhiboActivity extends Activity {
 	 * return view; }
 	 */
 
-	@Override
+	ArrayAdapter<String> arrayAdapter;
+	String strs[] = { "选择菜品类别", "川菜", "湘菜", "粤菜", "鲁菜" };
+
+ 	@Override
 	protected void onCreate(Bundle savedInstanceState) { // TODO
 		// Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhibo_jiaoxue);
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_dropdown_item, from);
-
-		Spinner spinner = (Spinner) findViewById(R.id.leibie_spinner);
-
+				android.R.layout.simple_spinner_dropdown_item, strs);
+		Spinner spinner = (Spinner) findViewById(R.id.zhibo_spinner);
 		spinner.setAdapter(adapter);
-
-		spinner.setOnItemSelectedListener(itemClickListener);
-
 		imageView = (ImageView) findViewById(R.id.zhibo_back);
 		imageView.setOnClickListener(clickListener);
-		
-		imageView=(ImageView)findViewById(R.id.kaishi_zhibo);
+
+		imageView = (ImageView) findViewById(R.id.kaishi_zhibo);
 		imageView.setOnClickListener(clickListener);
 
 		textView = (TextView) findViewById(R.id.neirong_anniu);
@@ -79,8 +77,6 @@ public class ZhiboActivity extends Activity {
 		shareWeiXin.setOnClickListener(clickListener);
 		shareQQ.setOnClickListener(clickListener);
 		shareWeiBo.setOnClickListener(clickListener);
-		
-		
 
 		// itemClickListener = (OnItemSelectedListener)
 		// findViewById(R.id.xiala_jiantou);
@@ -107,10 +103,11 @@ public class ZhiboActivity extends Activity {
 						.show();
 
 				break;
-				
+
 			case R.id.kaishi_zhibo:
-				Toast.makeText(ZhiboActivity.this, "直播", Toast.LENGTH_SHORT).show();
-				
+				Toast.makeText(ZhiboActivity.this, "直播", Toast.LENGTH_SHORT)
+						.show();
+
 				break;
 
 			case R.id.weixin_imageView:

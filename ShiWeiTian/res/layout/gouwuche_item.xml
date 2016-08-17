@@ -11,27 +11,32 @@
         android:background="@color/tianchongse" >
 
         <CheckBox
-            android:id="@+id/biaoti_textView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:id="@+id/biaoti_textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:drawableLeft="@drawable/sichu"
             android:drawablePadding="5dp"
+            android:gravity="center_vertical"
             android:padding="10dp"
             android:text="芒果姐姐小厨房"
             android:textColor="@color/xuanlan" />
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
         <TextView
             android:id="@+id/biaoti_bianji"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="11dp"
+            android:gravity="center"
             android:text="@string/bianji"
-            android:textColor="@color/xuanlan" />
+            android:textColor="@color/xuanlan"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,9 +53,12 @@
 
             <ImageView
                 android:id="@+id/meishi_image"
-                android:layout_width="120dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="9.5dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="9.5dp"
                 android:background="@drawable/meishi" />
 
             <ImageButton
@@ -83,8 +91,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2" 
-                >
+                android:layout_weight="2" >
 
                 <TextView
                     android:id="@+id/jiage_textView"
@@ -92,9 +99,8 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:text="@string/jiage"
-                    android:textSize="16sp"
                     android:textColor="@color/jiage"
-                    />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/yuanjia_textView"
@@ -104,8 +110,9 @@
                     android:textSize="11sp"
                     android:text="¥ 316"
                     android:gravity="center"
+          
                     android:textColor="#b0b0b0"
-                     />
+                    />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -67,11 +67,14 @@
             android:name="com.wangdi.shiweitian.GouwucheActivity"
             android:launchMode="singleTask" />
         <activity
+            android:name="com.wangdi.shiweitian.ZhiboActivity"
+            android:launchMode="singleTask" />
+        <activity
             android:name="com.wangdi.shiweitian.SousuoActivity"
             android:launchMode="singleTask" />
-      <activity
-            android:name="com.wangdi.shiweitian.ZhiboActivity"
-            android:launchMode="singleTask" /> 
+
+      
+
     </application>
 
 </manifest>
