@@ -23,7 +23,7 @@ import android.widget.SimpleAdapter;
 public class FukuanFragment extends Fragment implements OnClickListener {
 	ListView listView;
 	SimpleAdapter simpleAdpter;
-	View v;
+	View view;
 	View header;
 
 	RadioButton textViewdingdan;
@@ -43,34 +43,40 @@ public class FukuanFragment extends Fragment implements OnClickListener {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 
-		v = inflater
-				.inflate(R.layout.activity_quanbu_dingdan, container, false);
-
-		header = LayoutInflater.from(getActivity()).inflate(
-				R.layout.quanbu_dingdan_item, null);
-
-		listView = (ListView) v.findViewById(R.id.quanbu_listView);
-		listView.addHeaderView(header);
+		view = inflater.inflate(R.layout.fragment_fukuan, container, false);
 
 		SimpleAdapter simpleAdpter = new SimpleAdapter(getActivity(),
 				getData(), R.layout.quanbu_dingdan_item, new String[] {
 						"biaoti", "image", "neirong", "jiage" }, new int[] {
 						R.id.biaoti_textView, R.id.meishi_image,
 						R.id.neirong_textView, R.id.jiage_textView });
+		chushi();
+
+		return view;
+	}
+
+	
+	
+	//控件找Id
+	public void chushi() {
+		listView = (ListView) view.findViewById(R.id.fukuan_listView);
 
 		listView.setAdapter(simpleAdpter);
 		listView.setOnItemClickListener(onItemClickListener);
 
-		textViewdingdan = (RadioButton) v.findViewById(R.id.quxiao_dingdan);
-		textViewquefukuan = (RadioButton) v.findViewById(R.id.queren_fukuan);
+		textViewdingdan = (RadioButton) view.findViewById(R.id.quxiao_dingdan);
+		textViewquefukuan = (RadioButton) view.findViewById(R.id.queren_fukuan);
 
-		radioGroupfukuan = (RadioGroup) v.findViewById(R.id.queren_fukuan);
-		radioGroupquxiao = (RadioGroup) v.findViewById(R.id.quxiao_dingdan);
+		radioGroupfukuan = (RadioGroup) view.findViewById(R.id.queren_fukuan);
+		radioGroupquxiao = (RadioGroup) view.findViewById(R.id.quxiao_dingdan);
 
 		radioGroupfukuan.setOnCheckedChangeListener(OnCheckedChangeListener);
 		radioGroupquxiao.setOnCheckedChangeListener(OnCheckedChangeListener);
 
-		return v;
+		
+		
+		
+		
 	}
 
 	public void onClick(View v) {
@@ -90,8 +96,8 @@ public class FukuanFragment extends Fragment implements OnClickListener {
 		}
 
 	};
-	
-	 List<Map<String, Object>> getData() {
+
+	List<Map<String, Object>> getData() {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Map<String, Object> map;
 		for (int i = 0; i < 5; i++) {
@@ -100,12 +106,11 @@ public class FukuanFragment extends Fragment implements OnClickListener {
 			map.put("image", "meishi");
 			map.put("neirong", "BBBB");
 			map.put("jiage", "¥ 168");
-			
+
 			list.add(map);
 		}
 		return list;
 	}
-	
 
 	/*
 	 * OnItemSelectedListener onItemSelectedListener=new

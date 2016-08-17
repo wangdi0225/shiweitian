@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -16,8 +16,9 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class GouwucheActivity extends Activity {
+public class GouwucheActivity extends FragmentActivity {
 	private ListView listview;
+	private TextView textView;
 	private ImageView imageView;
 	private ImageView imageView2;
 	private SimpleAdapter simpleAdapter;
@@ -43,8 +44,8 @@ public class GouwucheActivity extends Activity {
 
 		imageView.setOnClickListener(clickListener);
 		bianji_textView.setOnClickListener(clickListener);
-		
-		
+
+		// textView.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG); //中划线
 
 		gouwuche();
 		getData();

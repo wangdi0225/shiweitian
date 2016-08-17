@@ -102,7 +102,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:textSize="11sp"
-                    android:text="@string/jiage"
+                    android:text="¥ 316"
                     android:gravity="center"
                     android:textColor="#b0b0b0"
                      />
