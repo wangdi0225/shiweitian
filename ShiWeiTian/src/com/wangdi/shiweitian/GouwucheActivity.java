@@ -54,8 +54,8 @@ public class GouwucheActivity extends FragmentActivity {
 		checkBox = (CheckBox) findViewById(R.id.quanxuan_anniu);
 		checkBox.setOnClickListener(clickListener);
 
-		biaotiCheckBox = (CheckBox) findViewById(R.id.biaoti_checkBox);
-		biaotiCheckBox.setOnClickListener(clickListener);
+		// biaotiCheckBox = (CheckBox) findViewById(R.id.biaoti_checkBox);
+		// biaotiCheckBox.setOnClickListener(clickListener);
 
 		gouwuche();
 		getData();
@@ -97,21 +97,6 @@ public class GouwucheActivity extends FragmentActivity {
 						.show();
 
 				break;
-
-			/*
-			 * case R.id.quanxuan_anniu: if(checkBox.isChecked()){ for(int
-			 * i=0;i<contacts.getCount();i++){ contacts.selectedMap.put(i,true);
-			 * 
-			 * contacts.cur.moveToPosition(i);
-			 * contacts.delContactsIdSet.add(String
-			 * .valueOf(contacts.cur.getInt(CONTACTS_ID_INDEX)));
-			 * 
-			 * 
-			 * }
-			 * 
-			 * 
-			 * }
-			 */
 
 			default:
 				break;

@@ -32,17 +32,16 @@ public class ZhiboActivity extends Activity {
 	OnClickListener onClickListener;
 
 <<<<<<< HEAD
+
 	TextView textView;
 
 	ImageView imageView, shareWeiXin, shareQQ, shareWeiBo;
 
-=======
-	PopupWindow popupWindow;
-	private View show_popvieView;
 
-	ImageView imageView;
+	
+	
 
->>>>>>> ff499980e148871915bc06dd21453825a6b1e27f
+
 	/*
 	 * public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	 * Bundle savedInstanceState) {
