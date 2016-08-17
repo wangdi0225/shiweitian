@@ -87,7 +87,7 @@ public class Fragment_Video extends Fragment implements AdapterView.OnItemClickL
             public void onClick(View view) {
                 LayoutInflater factory = LayoutInflater.from(getActivity());
                 final View textEntryView = factory.inflate(R.layout.bianji_view, null);
-                new AlertDialog.Builder(getActivity())
+                new AlertDialog.Builder(getActivity(),R.style.AlertDialog_style)
                         .setTitle("编辑信息")
                         .setView(textEntryView)
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {

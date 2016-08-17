@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.wangdi.shiweitian.R;
 
@@ -33,7 +34,7 @@ import com.wangdi.shiweitian.R;
  */
 public class Release_Image extends Fragment  implements OnClickListener {
 	private static final int CHUAN_1=1;
-	Button sc_image;
+	Button sc_image,fabu_image;
 	ImageButton ib_zl, ib_nd;
 	Spinner sp_zl, sp_nd;
 	ArrayAdapter aa_zl,aa_nd;
@@ -62,6 +63,12 @@ public class Release_Image extends Fragment  implements OnClickListener {
 		case R.id.sc_image:
 			xiangji();
 			break;
+		case R.id.fabu_image:
+			Toast.makeText(getActivity(), "已发布", Toast.LENGTH_SHORT).show();
+			Intent i=new Intent(getActivity(),Released.class);
+			startActivity(i);
+			break;
+
 
 		default:
 			break;
@@ -74,6 +81,7 @@ public class Release_Image extends Fragment  implements OnClickListener {
 		ib_zl = (ImageButton) view.findViewById(R.id.ib_zl);
 		ib_nd = (ImageButton) view.findViewById(R.id.ib_nd);
 		sc_image = (Button) view.findViewById(R.id.sc_image);
+		fabu_image = (Button) view.findViewById(R.id.fabu_image);
 				
 		String[] str1 = { "选择菜系种类", "川菜", "粤菜", "湘菜", "鲁菜", "闽菜", "苏菜", "浙菜",
 				"徽菜" };
@@ -83,6 +91,7 @@ public class Release_Image extends Fragment  implements OnClickListener {
 		ib_zl.setOnClickListener(this);
 		ib_nd.setOnClickListener(this);
 		sc_image.setOnClickListener(this);
+		fabu_image.setOnClickListener(this);
 	}
 	private void xiangji() {
 		Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

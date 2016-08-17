@@ -11,6 +11,7 @@
         android:background="@color/tianchongse" >
 
         <CheckBox
+            android:id="@+id/biaoti_checkBox"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
@@ -61,15 +62,11 @@
                 android:layout_marginTop="9.5dp"
                 android:background="@drawable/meishi" />
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/meishi_image"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="34dp"
-                android:background="@null"
+                android:layout_centerInParent="true"
                 android:src="@drawable/shipingbofang2" />
-
         </RelativeLayout>
 
         <LinearLayout
@@ -107,12 +104,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:textSize="11sp"
-                    android:text="¥ 316"
                     android:gravity="center"
-          
+                    android:text="¥ 316"
                     android:textColor="#b0b0b0"
-                    />
+                    android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

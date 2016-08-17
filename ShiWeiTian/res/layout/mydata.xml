@@ -95,7 +95,7 @@
         android:layout_marginTop="1dp"
         android:id="@+id/dj_mingpian">
         <TextView
-            android:id="@+id/mingpian_data"
+            
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -106,6 +106,7 @@
             android:paddingLeft="11dp"
             />
         <ImageView
+            android:id="@+id/mingpian_data"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/erweima"/>
