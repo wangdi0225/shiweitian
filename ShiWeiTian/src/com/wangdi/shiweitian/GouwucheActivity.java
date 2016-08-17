@@ -45,14 +45,12 @@ public class GouwucheActivity extends Activity {
 		quanxuan_anniu = (TextView) findViewById(R.id.quanxuan_anniu);
 		jiesuan_textView = (TextView) findViewById(R.id.jiesuan_textView);
 		heji_textView = (TextView) findViewById(R.id.heji_textView);
+		biaoti_bianji = (TextView) findViewById(R.id.biaoti_bianji);
 
 		bianji_textView.setOnClickListener(clickListener);
-
-		biaoti_bianji = (TextView) findViewById(R.id.biaoti_bianji);
 		biaoti_bianji.setOnClickListener(clickListener);
 
-		checkBox = (CheckBox) findViewById(R.id.quanxuan_anniu);
-		checkBox.setOnClickListener(clickListener);
+		// checkBox.setOnClickListener(clickListener);
 
 		// biaotiCheckBox = (CheckBox) findViewById(R.id.biaoti_checkBox);
 		// biaotiCheckBox.setOnClickListener(clickListener);
