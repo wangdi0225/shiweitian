@@ -7,7 +7,7 @@ import android.os.Handler;
 
 public class HuanyingActivity extends Activity {
 
-	private final long SPLASH_LENGTH = 5000;
+	private final long SPLASH_LENGTH = 2000;
 	Handler handler = new Handler();
 
 	public void onCreate(Bundle savedInstanceState) {
