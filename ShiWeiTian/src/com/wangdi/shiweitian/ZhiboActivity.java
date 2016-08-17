@@ -33,10 +33,8 @@ public class ZhiboActivity extends Activity {
 
 	PopupWindow popupWindow;
 	private View show_popvieView;
-	
 
 	ImageView imageView;
-
 
 	/*
 	 * public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,19 +47,10 @@ public class ZhiboActivity extends Activity {
 	 * chushi();
 	 * 
 	 * return view; }
-	 * 
 	 */
 
-	
-	
-	
-	
-	
-	
-	
-
 	ArrayAdapter<String> arrayAdapter;
-	String strs[] = {"选择菜品类别","川菜","湘菜","粤菜","鲁菜"};
+	String strs[] = { "选择菜品类别", "川菜", "湘菜", "粤菜", "鲁菜" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) { // TODO
@@ -69,8 +58,9 @@ public class ZhiboActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhibo_jiaoxue);
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, strs);
-		Spinner spinner=(Spinner)findViewById(R.id.zhibo_spinner);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_dropdown_item, strs);
+		Spinner spinner = (Spinner) findViewById(R.id.zhibo_spinner);
 		spinner.setAdapter(adapter);
 		imageView = (ImageView) findViewById(R.id.zhibo_back);
 		imageView.setOnClickListener(clickListener);
@@ -88,11 +78,9 @@ public class ZhiboActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.zhibo_back:
 
-				Intent intent = new Intent(ZhiboActivity.this, MainActivity.class);
-				startActivity(intent); 
-
-
-				
+				Intent intent = new Intent(ZhiboActivity.this,
+						MainActivity.class);
+				startActivity(intent);
 
 				break;
 
@@ -107,8 +95,7 @@ public class ZhiboActivity extends Activity {
 			}
 		}
 	};
-	
-	
+
 	/*
 	 * @Override public void onClick(View v) { // TODO Auto-generated method
 	 * stub
