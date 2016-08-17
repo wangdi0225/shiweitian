@@ -59,21 +59,19 @@ public class ZhiboActivity extends Activity {
 	
 	
 	
+
+	ArrayAdapter<String> arrayAdapter;
+	String strs[] = {"选择菜品类别","川菜","湘菜","粤菜","鲁菜"};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) { // TODO
 		// Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhibo_jiaoxue);
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_dropdown_item, from);
-
-		Spinner spinner = (Spinner) findViewById(R.id.leibie_spinner);
-
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, strs);
+		Spinner spinner=(Spinner)findViewById(R.id.zhibo_spinner);
 		spinner.setAdapter(adapter);
-
-		spinner.setOnItemSelectedListener(itemClickListener);
-
 		imageView = (ImageView) findViewById(R.id.zhibo_back);
 		imageView.setOnClickListener(clickListener);
 		// itemClickListener = (OnItemSelectedListener)

@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         <activity
-            android:name="com.wangdi.shiweitian.ZhiboActivity"
+            android:name="com.wangdi.shiweitian.HuanyingActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,11 +67,11 @@
             android:name="com.wangdi.shiweitian.GouwucheActivity"
             android:launchMode="singleTask" />
         <activity
+            android:name="com.wangdi.shiweitian.ZhiboActivity"
+            android:launchMode="singleTask" />
+        <activity
             android:name="com.wangdi.shiweitian.SousuoActivity"
             android:launchMode="singleTask" />
-       <!--  <activity
-            android:name="com.wangdi.shiweitian.ZhiboActivity"
-            android:launchMode="singleTask" /> -->
     </application>
 
 </manifest>

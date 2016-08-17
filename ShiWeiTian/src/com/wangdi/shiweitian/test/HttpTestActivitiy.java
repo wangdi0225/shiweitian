@@ -13,12 +13,15 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+
 import com.wangdi.shiweitian.R;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
+
+
 
 public class HttpTestActivitiy extends Activity {
 	@Override
