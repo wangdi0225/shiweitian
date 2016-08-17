@@ -208,7 +208,7 @@ public class MyData extends Activity implements View.OnClickListener {
 		intent.putExtra("aspectX", 1);
 		intent.putExtra("aspectY", 1);
 		// outputX outputY 是裁剪图片宽高
-		intent.putExtra("outputX", 320);
+		intent.putExtra("outputX", 350);
 		intent.putExtra("outputY", 320);
 		intent.putExtra("return-data", true);
 		startActivityForResult(intent, 2);
