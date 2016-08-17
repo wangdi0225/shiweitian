@@ -1,10 +1,7 @@
 package com.wangdi.shiweitian;
 
 import android.content.Intent;
-<<<<<<< HEAD
 
-=======
->>>>>>> 4e139333bb61d6a1149b554afb804e8daa933563
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

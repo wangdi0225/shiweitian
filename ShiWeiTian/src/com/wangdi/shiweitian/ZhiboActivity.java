@@ -21,7 +21,7 @@ public class ZhiboActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.zhibo_jiaoyue_item);
+		setContentView(R.layout.activity_zhibo_jiaoxue);
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_dropdown_item, strs);
