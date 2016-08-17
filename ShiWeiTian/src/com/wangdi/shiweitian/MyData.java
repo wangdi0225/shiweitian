@@ -2,6 +2,7 @@ package com.wangdi.shiweitian;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +23,7 @@ import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -38,8 +41,10 @@ import com.wangdi.shiweitian.R;
  */
 public class MyData extends Activity implements View.OnClickListener {
 	ImageView fanhui_data, tx_data;
-	TextView bianji_data, name_data, mingpian_data, sex_data, diqu_data,
-			qianming_data, shouji_data, youxiang_data, tuichu_data;
+	LinearLayout dj_diqu, dj_email, dj_mingpian, dj_name, dj_numb, dj_qianming,
+			dj_sex;
+	TextView name_data, mingpian_data, sex_data, diqu_data, qianming_data,
+			shouji_data, youxiang_data, tuichu_data, dj_tx;
 	private String[] items = new String[] { "选择本地图片", "拍照" };
 	private static final String IMAGE_FILE_NAME = "rub_course_default_user_icon.png";
 	private static final int IMAGE_REQUEST_CODE = 0;
@@ -57,7 +62,6 @@ public class MyData extends Activity implements View.OnClickListener {
 	public void chushi() {
 		fanhui_data = (ImageView) findViewById(R.id.fanhui_data);
 		tx_data = (ImageView) findViewById(R.id.tx_data);
-		bianji_data = (TextView) findViewById(R.id.bianji_data);
 		name_data = (TextView) findViewById(R.id.name_data);
 		mingpian_data = (TextView) findViewById(R.id.mingpian_data);
 		sex_data = (TextView) findViewById(R.id.sex_data);
@@ -66,6 +70,15 @@ public class MyData extends Activity implements View.OnClickListener {
 		shouji_data = (TextView) findViewById(R.id.shouji_data);
 		youxiang_data = (TextView) findViewById(R.id.youxiang_data);
 		tuichu_data = (TextView) findViewById(R.id.tuichu_data);
+		dj_diqu = (LinearLayout) findViewById(R.id.dj_diqu);
+		dj_email = (LinearLayout) findViewById(R.id.dj_email);
+		dj_mingpian = (LinearLayout) findViewById(R.id.dj_mingpian);
+		dj_name = (LinearLayout) findViewById(R.id.dj_name);
+		dj_numb = (LinearLayout) findViewById(R.id.dj_numb);
+		dj_qianming = (LinearLayout) findViewById(R.id.dj_qianming);
+		dj_sex = (LinearLayout) findViewById(R.id.dj_sex);
+		dj_tx = (TextView) findViewById(R.id.dj_tx);
+
 		fanhui_data.setOnClickListener(this);
 		tx_data.setOnClickListener(this);
 		name_data.setOnClickListener(this);
@@ -75,8 +88,15 @@ public class MyData extends Activity implements View.OnClickListener {
 		qianming_data.setOnClickListener(this);
 		shouji_data.setOnClickListener(this);
 		youxiang_data.setOnClickListener(this);
-		tuichu_data.setOnClickListener(this);
-		bianji_data.setOnClickListener(this);
+		dj_diqu.setOnClickListener(this);
+		dj_email.setOnClickListener(this);
+		dj_mingpian.setOnClickListener(this);
+		dj_name.setOnClickListener(this);
+		dj_numb.setOnClickListener(this);
+		dj_qianming.setOnClickListener(this);
+		dj_sex.setOnClickListener(this);
+		dj_tx.setOnClickListener(this);
+
 	}
 
 	@Override
@@ -87,120 +107,33 @@ public class MyData extends Activity implements View.OnClickListener {
 			intent.setClass(MyData.this, MainActivity.class);
 			startActivity(intent);
 			break;
-		case R.id.tx_data:
+		case R.id.dj_tx:
 			replaceTx();
 			break;
-		case R.id.bianji_data:
-			bianji();
-			break;
-		case R.id.name_data:
-			break;
-		case R.id.mingpian_data:
-			break;
-		case R.id.sex_data:
-			break;
-		case R.id.diqu_data:
-			break;
-		case R.id.qianming_data:
-			break;
-		case R.id.shouji_data:
-			break;
-		case R.id.youxiang_data:
-			break;
 		case R.id.tuichu_data:
+			Intent i = new Intent(MyData.this, LoginActivity.class);
+			startActivity(i);
+			break;
+		case R.id.dj_name:
+			bjname();
+			break;
+		case R.id.dj_mingpian:
+
+			break;
+		case R.id.dj_numb:
+
+			break;
+		case R.id.dj_qianming:
+
+			break;
+		case R.id.dj_sex:
+
+			break;
+		case R.id.dj_email:
+
 			break;
 
 		}
-	}
-
-	String sex1;
-
-	private void bianji() {
-		// LayoutInflater是用来找layout文件夹下的xml布局文件，并且实例化
-		LayoutInflater factory = LayoutInflater.from(MyData.this);
-		// 把activity_login中的控件定义在View中
-		final View textEntryView = factory.inflate(R.layout.data_view, null);
-		// 将LoginActivity中的控件显示在对话框中
-		new AlertDialog.Builder(MyData.this)
-				// 对话框的标题
-				.setTitle("编辑信息")
-				// 设定显示的View
-				.setView(textEntryView)
-				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-
-						// 注意：textEntryView.findViewById很重要，因为上面factory.inflate(R.layout.activity_login,
-						// null)将页面布局赋值给了textEntryView了
-						final EditText etname = (EditText) textEntryView
-								.findViewById(R.id.etname);
-						final EditText etsjh = (EditText) textEntryView
-								.findViewById(R.id.etsjh);
-						final EditText etqianming = (EditText) textEntryView
-								.findViewById(R.id.etqianming);
-						final EditText etdiqu = (EditText) textEntryView
-								.findViewById(R.id.etdiqu);
-						final EditText etyouxiang = (EditText) textEntryView
-								.findViewById(R.id.etyouxiang);
-						final RadioGroup rg_data = (RadioGroup) textEntryView
-								.findViewById(R.id.rg_data); // 将页面输入框中获得的“用户名”，“密码”转为字符串
-						String name = etname.getText().toString().trim();
-						String sjh = etsjh.getText().toString().trim();
-						String qianming = etqianming.getText().toString()
-								.trim();
-						String youxiang = etyouxiang.getText().toString()
-								.trim();
-						String shouji = etsjh.getText().toString().trim();
-						String diqu = etqianming.getText().toString().trim();
-						// 现在为止已经获得了字符型的用户名和密码了，接下来就是根据自己的需求来编写代码了
-						// 这里做一个简单的测试，假定输入的用户名和密码都是1则进入其他操作页面（OperationActivity）
-						if (!name.equals("")) {
-							name_data.setText(name);
-							rg_data.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-								@Override
-								public void onCheckedChanged(
-										RadioGroup radioGroup, int i) {
-									switch (i) {
-									case R.id.nan:
-										sex_data.setText("男");
-										break;
-									case R.id.nv:
-										sex_data.setText("女");
-										break;
-									}
-								}
-							});
-							diqu_data.setText(diqu);
-							qianming_data.setText(qianming);
-							shouji_data.setText(shouji);
-							youxiang_data.setText(youxiang);
-							Toast.makeText(MyData.this, "编辑成功",
-									Toast.LENGTH_SHORT).show();
-						} else {
-							Toast.makeText(MyData.this, "姓名不能为空",
-									Toast.LENGTH_SHORT).show();
-							try {
-								// 注意此处是通过反射，修改源代码类中的字段mShowing为true，系统会认为对话框打开
-								// 从而调用dismiss()
-								Field field = dialog.getClass().getSuperclass()
-										.getDeclaredField("mShowing");
-								field.setAccessible(true);
-								field.set(dialog, false);
-								dialog.dismiss();
-							} catch (Exception e) {
-							}
-						}
-					}
-				})
-				// 对话框的“退出”单击事件
-				.setNegativeButton("退出", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						MyData.this.finish();
-					}
-				})
-				// 设置dialog是否为模态，false表示模态，true表示非模态
-				.setCancelable(false)
-				// 对话框的创建、显示
-				.create().show();
 	}
 
 	private void replaceTx() {
@@ -299,4 +232,28 @@ public class MyData extends Activity implements View.OnClickListener {
 			return false;
 		}
 	}
+
+	private void bjname() {
+		LayoutInflater inflater = LayoutInflater.from(MyData.this);
+		final View view = inflater.inflate(R.layout.bianji_data, null);
+		final AlertDialog.Builder builder = new AlertDialog.Builder(MyData.this,R.style.AlertDialog_style);
+		builder.setView(view);
+		final TextView tv = (TextView) view.findViewById(R.id.tv);
+		final EditText et = (EditText) view.findViewById(R.id.et);
+		tv.setText("昵称");
+		et.setText(name_data.getText());
+		final String name = et.getText().toString();
+		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO 自动生成的方法存根
+				dialog.dismiss();
+				
+			}
+		});
+		builder.setCancelable(false);
+		// 对话框的创建、显示
+		builder.create().show();
+	}
+
 }
