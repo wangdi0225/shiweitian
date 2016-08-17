@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class ZhiboActivity extends Activity {
 	View view;
 	OnItemSelectedListener itemClickListener;
 	OnClickListener onClickListener;
+	ImageView imageView;
 
 	/*
 	 * public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,11 +58,13 @@ public class ZhiboActivity extends Activity {
 		spinner.setAdapter(adapter);
 
 		spinner.setOnItemSelectedListener(itemClickListener);
-
-	//	itemClickListener = (OnItemSelectedListener) findViewById(R.id.xiala_jiantou);
+		imageView = (ImageView) findViewById(R.id.zhibo_back);
+		imageView.setOnClickListener(clickListener);
+		// itemClickListener = (OnItemSelectedListener)
+		// findViewById(R.id.xiala_jiantou);
 		// onClickListener = (OnClickListener) findViewById(R.id.xiala_jiantou);
 	}
-	
+
 	OnClickListener clickListener = new OnClickListener() {
 
 		@Override
@@ -68,24 +72,22 @@ public class ZhiboActivity extends Activity {
 			// TODO 自动生成的方法存根
 			switch (v.getId()) {
 			case R.id.zhibo_back:
-				Intent intent = new Intent(ZhiboActivity.this, MainActivity.class);
+				Intent intent = new Intent(ZhiboActivity.this,
+						MainActivity.class);
 				startActivity(intent);
+				break;
+
+			case R.id.neirong_anniu:
+				Toast.makeText(ZhiboActivity.this, "提交内容", Toast.LENGTH_SHORT)
+						.show();
 
 				break;
-				
-			case R.id.neirong_anniu:
-				  Toast.makeText(ZhiboActivity.this, "提交内容", Toast.LENGTH_SHORT).show();
- 
-			break;
 
 			default:
 				break;
 			}
 		}
 	};
-	
-	
-	
 
 	/*
 	 * @Override public void onClick(View v) { // TODO Auto-generated method

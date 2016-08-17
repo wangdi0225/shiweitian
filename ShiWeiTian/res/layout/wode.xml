@@ -133,10 +133,41 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/wode_fabuxinzuoping"
+        android:id="@+id/wode_zhibojiaoxue"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
+        android:layout_weight="1.2"
+        android:background="@color/baise"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/fabu"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="开始直播"
+            android:textColor="#3b2a20"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/zuojiantou" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_fabuxinzuoping"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
         android:layout_weight="1.2"
         android:background="@color/baise"
         android:orientation="horizontal" >
@@ -167,8 +198,8 @@
         android:id="@+id/wode_yifabudezuoping"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.2"
         android:layout_marginTop="1dp"
+        android:layout_weight="1.2"
         android:background="@color/baise"
         android:orientation="horizontal" >
 
@@ -229,8 +260,8 @@
         android:id="@+id/wode_wodeshoucang"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.2"
         android:layout_marginTop="1dp"
+        android:layout_weight="1.2"
         android:background="@color/baise"
         android:orientation="horizontal" >
 
@@ -260,9 +291,9 @@
         android:id="@+id/wode_zuijinliulanjilu"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="1dp"
         android:layout_weight="1.2"
         android:background="@color/baise"
-        android:layout_marginTop="1dp"
         android:orientation="horizontal" >
 
         <TextView
