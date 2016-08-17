@@ -44,6 +44,8 @@ public class GouwucheActivity extends FragmentActivity {
 
 		imageView.setOnClickListener(clickListener);
 		bianji_textView.setOnClickListener(clickListener);
+		
+		biaoti_bianji.setOnClickListener(clickListener);
 
 		// textView.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG); //中划线
 

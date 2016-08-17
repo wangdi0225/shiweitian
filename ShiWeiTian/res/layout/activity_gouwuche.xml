@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@drawable/kuangjia"
+            android:background="@drawable/kuangjia_jiesuan"
             android:text="结算 (0)"
             android:textColor="#ffffff" />
     </RelativeLayout>
