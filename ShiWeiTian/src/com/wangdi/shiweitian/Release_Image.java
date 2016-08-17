@@ -1,6 +1,21 @@
 package com.wangdi.shiweitian;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.MediaStore.Video.Media;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +32,8 @@ import com.wangdi.shiweitian.R;
  * Created by Administrator on 2016/8/8 0008.
  */
 public class Release_Image extends Fragment  implements OnClickListener {
-	Button sc_video;
+	private static final int CHUAN_1=1;
+	Button sc_image;
 	ImageButton ib_zl, ib_nd;
 	Spinner sp_zl, sp_nd;
 	ArrayAdapter aa_zl,aa_nd;
@@ -43,6 +59,9 @@ public class Release_Image extends Fragment  implements OnClickListener {
 		case R.id.ib_nd:
 			sp_nd.performClick();
 			break;
+		case R.id.sc_image:
+			xiangji();
+			break;
 
 		default:
 			break;
@@ -53,7 +72,9 @@ public class Release_Image extends Fragment  implements OnClickListener {
 		sp_zl = (Spinner) view.findViewById(R.id.sp_zl);
 		sp_nd = (Spinner) view.findViewById(R.id.sp_nd);
 		ib_zl = (ImageButton) view.findViewById(R.id.ib_zl);
-		ib_nd = (ImageButton) view.findViewById(R.id.ib_nd);	
+		ib_nd = (ImageButton) view.findViewById(R.id.ib_nd);
+		sc_image = (Button) view.findViewById(R.id.sc_image);
+				
 		String[] str1 = { "选择菜系种类", "川菜", "粤菜", "湘菜", "鲁菜", "闽菜", "苏菜", "浙菜",
 				"徽菜" };
 		String[] str2 = { "困难", "一般", "简单" };
@@ -61,5 +82,23 @@ public class Release_Image extends Fragment  implements OnClickListener {
 		aa_nd = new ArrayAdapter(getActivity(), R.drawable.sp_item, str2);
 		ib_zl.setOnClickListener(this);
 		ib_nd.setOnClickListener(this);
+		sc_image.setOnClickListener(this);
+	}
+	private void xiangji() {
+		Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		startActivityForResult(i, CHUAN_1);
+	}
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO 自动生成的方法存根
+		super.onActivityResult(requestCode, resultCode, data);
+			if(requestCode==CHUAN_1){
+				Bundle bundle=data.getExtras();
+				Bitmap bitmap=(Bitmap) bundle.get("data");
+				Media media=(Media) bundle.get("data");
+				Drawable drawable = new BitmapDrawable(bitmap);
+				
+				
+			}
 	}
 }

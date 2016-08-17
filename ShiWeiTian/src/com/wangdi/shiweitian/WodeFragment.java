@@ -21,6 +21,7 @@ public class WodeFragment extends Fragment {
 	LinearLayout layoutgrzl;
 	LinearLayout layoutsc;
 	LinearLayout layoutjl;
+	LinearLayout layoutzb;
 	TextView textViewdfk;
 	TextView textViewdfh;
 	TextView textViewdsh;
@@ -37,6 +38,7 @@ public class WodeFragment extends Fragment {
 		layoutgrzl = (LinearLayout) v.findViewById(R.id.wode_gerenziliao);
 		layoutsc = (LinearLayout) v.findViewById(R.id.wode_wodeshoucang);
 		layoutjl = (LinearLayout) v.findViewById(R.id.wode_zuijinliulanjilu);
+		layoutzb = (LinearLayout) v.findViewById(R.id.wode_zhibojiaoxue);
 		layoutqbdd.setOnTouchListener(onTouchListener);
 		layouthykt.setOnTouchListener(onTouchListener);
 		layoutyfb.setOnTouchListener(onTouchListener);
@@ -44,6 +46,7 @@ public class WodeFragment extends Fragment {
 		layoutgrzl.setOnTouchListener(onTouchListener);
 		layoutsc.setOnTouchListener(onTouchListener);
 		layoutjl.setOnTouchListener(onTouchListener);
+		layoutzb.setOnTouchListener(onTouchListener);
 		textViewdfk = (TextView) v.findViewById(R.id.wode_daifukuan);
 		textViewdfh = (TextView) v.findViewById(R.id.wode_daifahuo);
 		textViewdsh = (TextView) v.findViewById(R.id.wode_daishouhuo);
@@ -62,16 +65,16 @@ public class WodeFragment extends Fragment {
 			// TODO 自动生成的方法存根
 			switch (arg0.getId()) {
 			case R.id.wode_daifukuan:
-				Toast.makeText(getActivity(), "点啥", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "待付款", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.wode_daifahuo:
-				Toast.makeText(getActivity(), "点啥", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "待发货", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.wode_daishouhuo:
-				Toast.makeText(getActivity(), "点啥", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "待收货", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.wode_daipingjia:
-				Toast.makeText(getActivity(), "点啥", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "待评价", Toast.LENGTH_SHORT).show();
 				break;
 			default:
 				break;
@@ -87,7 +90,8 @@ public class WodeFragment extends Fragment {
 			Intent intent = new Intent();
 			switch (arg0.getId()) {
 			case R.id.wode_quanbudingdan:
-				Toast.makeText(getActivity(), "点啥", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "全部订单", Toast.LENGTH_SHORT)
+						.show();
 				break;
 			case R.id.wode_huiyuankaitong:
 
@@ -106,11 +110,16 @@ public class WodeFragment extends Fragment {
 				intent.setClass(getActivity(), MyData.class);
 				startActivity(intent);
 				break;
+			case R.id.wode_zhibojiaoxue:
+				intent.setClass(getActivity(), ZhiboActivity.class);
+				startActivity(intent);
+				break;
 			case R.id.wode_wodeshoucang:
-				Toast.makeText(getActivity(), "点啥", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "收藏", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.wode_zuijinliulanjilu:
-				Toast.makeText(getActivity(), "点啥", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "浏览记录", Toast.LENGTH_SHORT)
+						.show();
 				break;
 			default:
 				break;

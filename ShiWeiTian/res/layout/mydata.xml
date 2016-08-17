@@ -25,21 +25,13 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             />
-        <TextView
-            android:id="@+id/bianji_data"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="编辑"
-            android:textColor="@color/zhutise"
-            android:textSize="14sp"
-            android:layout_alignParentRight="true"
-            android:gravity="center"
-            android:layout_marginRight="11dp"/>
+        
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.6"
+        android:id="@+id/ll_tx"
         android:background="@color/bai"
         android:layout_marginTop="11dp">
         <TextView
@@ -51,6 +43,7 @@
             android:text="头像"
             android:gravity="center_vertical"
             android:paddingLeft="11dp"
+            android:id="@+id/dj_tx"
             />
         <ImageView
             android:id="@+id/tx_data"
@@ -66,7 +59,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/bai"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="1dp"
+        android:id="@+id/dj_name">
         <TextView
 
             android:layout_width="0dp"
@@ -86,14 +80,20 @@
             android:textSize="14sp"
             android:textColor="#7c7c7c"
             android:text="微厨"
-            android:layout_marginRight="11dp"/>
+            />
+       <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:src="@drawable/youjiantou"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/bai"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="1dp"
+        android:id="@+id/dj_mingpian">
         <TextView
             android:id="@+id/mingpian_data"
             android:layout_width="0dp"
@@ -108,15 +108,20 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/erweima"
-            android:layout_marginRight="11dp"/>
+            android:src="@drawable/erweima"/>
+        <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:src="@drawable/youjiantou"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/bai"
-        android:layout_marginTop="11dp">
+        android:layout_marginTop="11dp"
+        android:id="@+id/dj_sex">
         <TextView
 
             android:layout_width="0dp"
@@ -128,6 +133,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="11dp"
             />
+        
         <TextView
             android:id="@+id/sex_data"
             android:layout_width="wrap_content"
@@ -135,15 +141,20 @@
             android:gravity="center"
             android:textSize="14sp"
             android:textColor="#7c7c7c"
-            android:text="男"
-            android:layout_marginRight="11dp"/>
+            android:text="男"/>
+        <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:src="@drawable/youjiantou"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/bai"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="1dp"
+        android:id="@+id/dj_diqu">
         <TextView
 
             android:layout_width="0dp"
@@ -162,8 +173,12 @@
             android:gravity="center"
             android:textSize="14sp"
             android:textColor="#7c7c7c"
-            android:text="重庆"
-            android:layout_marginRight="11dp"/>
+            android:text="重庆"/>
+        <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:src="@drawable/youjiantou"/>
 
     </LinearLayout>
     <LinearLayout
@@ -171,7 +186,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/bai"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="1dp"
+        android:id="@+id/dj_qianming">
         <TextView
             android:id="@+id/qianming_data"
             android:layout_width="wrap_content"
@@ -185,16 +201,22 @@
             />
         <TextView
             android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:textSize="14sp"
             android:textColor="#7c7c7c"
-            android:text="1"
-            android:id="@+id/qianming"
-            android:layout_marginRight="11dp"/>
+            android:text="1dsfdsfds"
+            android:gravity="center_vertical"
+            android:id="@+id/qianming"/>
+        <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:src="@drawable/youjiantou"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/dj_numb"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -218,10 +240,15 @@
             android:gravity="center"
             android:textSize="14sp"
             android:textColor="#7c7c7c"
-            android:text="13615***15156"
-            android:layout_marginRight="11dp"/>
+            android:text="13615***15156"/>
+        <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:src="@drawable/youjiantou"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/dj_email"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -245,8 +272,12 @@
             android:gravity="center"
             android:textSize="14sp"
             android:textColor="#7c7c7c"
-            android:text="71201***@qq.com"
-            android:layout_marginRight="11dp"/>
+            android:text="71201***@qq.com"/>
+        <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:src="@drawable/youjiantou"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

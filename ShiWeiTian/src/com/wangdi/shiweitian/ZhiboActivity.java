@@ -6,12 +6,12 @@ import java.util.Map;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout.LayoutParams;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
@@ -30,9 +30,13 @@ public class ZhiboActivity extends Activity {
 	View view;
 	OnItemSelectedListener itemClickListener;
 	OnClickListener onClickListener;
+
 	PopupWindow popupWindow;
 	private View show_popvieView;
 	
+
+	ImageView imageView;
+
 
 	/*
 	 * public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,16 +73,15 @@ public class ZhiboActivity extends Activity {
 		spinner.setAdapter(adapter);
 
 		spinner.setOnItemSelectedListener(itemClickListener);
-		
-	//	popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.beijing_ms));  //设置的是popupwindow（window容器）的背景。 
-	//	popupWindow = new PopupWindow(view,LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT);
-		
-		
 
-	//	itemClickListener = (OnItemSelectedListener) findViewById(R.id.xiala_jiantou);
+		imageView = (ImageView) findViewById(R.id.zhibo_back);
+		imageView.setOnClickListener(clickListener);
+		// itemClickListener = (OnItemSelectedListener)
+		// findViewById(R.id.xiala_jiantou);
+
 		// onClickListener = (OnClickListener) findViewById(R.id.xiala_jiantou);
 	}
-	
+
 	OnClickListener clickListener = new OnClickListener() {
 
 		@Override
@@ -86,15 +89,20 @@ public class ZhiboActivity extends Activity {
 			// TODO 自动生成的方法存根
 			switch (v.getId()) {
 			case R.id.zhibo_back:
+
 				Intent intent = new Intent(ZhiboActivity.this, MainActivity.class);
 				startActivity(intent); 
 
-				break;
+
 				
+
+				break;
+
 			case R.id.neirong_anniu:
-				  Toast.makeText(ZhiboActivity.this, "提交内容", Toast.LENGTH_SHORT).show();
- 
-			break;
+				Toast.makeText(ZhiboActivity.this, "提交内容", Toast.LENGTH_SHORT)
+						.show();
+
+				break;
 
 			default:
 				break;
@@ -103,23 +111,6 @@ public class ZhiboActivity extends Activity {
 	};
 	
 	
-	/*private void blur(Bitmap bkg, View view, float radius) {
-		  Bitmap overlay = Bitmap.createBitmap(view.getMeasuredWidth(), view.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
-		  Canvas canvas = new Canvas(overlay);
-		  canvas.drawBitmap(bkg, -view.getLeft(), -view.getTop(),null);
-		  RenderScript rs = RenderScript.create(this);
-		  Allocation overlayAlloc = Allocation.createFromBitmap(rs, overlay);
-		  ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs, overlayAlloc.getElement());
-		  blur.setInput(overlayAlloc);
-		  blur.setRadius(radius);
-		  blur.forEach(overlayAlloc);
-		  overlayAlloc.copyTo(overlay);
-		  view.setBackground(new BitmapDrawable(getResources(), overlay));
-		  rs.destroy();
-		    }*/
-	
-	
-
 	/*
 	 * @Override public void onClick(View v) { // TODO Auto-generated method
 	 * stub

@@ -2,8 +2,6 @@ package com.wangdi.shiweitian;
 
 
 import android.content.Intent;
-
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 /**
@@ -58,6 +57,7 @@ public class Release_Video extends Fragment implements OnClickListener {
 		sp_zl = (Spinner) view.findViewById(R.id.sp_zl);
 		sp_nd = (Spinner) view.findViewById(R.id.sp_nd);
 		ib_zl = (ImageButton) view.findViewById(R.id.ib_zl);
+		ib_nd = (ImageButton) view.findViewById(R.id.ib_nd);	
 		ib_nd = (ImageButton) view.findViewById(R.id.ib_nd);
 		String[] str1 = { "选择菜系种类", "川菜", "粤菜", "湘菜", "鲁菜", "闽菜", "苏菜", "浙菜",
 				"徽菜" };

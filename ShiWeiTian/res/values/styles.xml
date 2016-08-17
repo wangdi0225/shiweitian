@@ -12,6 +12,21 @@
     <style name="spinner_style">
     <item name="android:background">@drawable/shuru</item>
     <item name="android:paddingLeft">5dp</item>
-t
+
     </style>
+  
+	 <style name="AlertDialog_style" >
+         <item name="android:windowFrame">@null</item>
+         <item name="android:windowIsFloating">true</item>  //是否浮现在activity之上
+         <item name="android:windowIsTranslucent">true</item> //是否半透明
+         <item name="android:windowNoTitle">false</item>  //是否显示title
+         <item name="android:background">@drawable/queding</item>  
+         <item name="android:button">@color/bai</item>
+         <item name="android:width">500dp</item>
+         <item name="android:height">100dp</item>
+         <item name="android:windowBackground">@drawable/bianji</item>
+          <item name="android:backgroundDimAmount">0.5</item>  //就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，dialog以外的区域是黑色的，完全看不到其他内容，系统的默认值是0.5
+         <item name="android:backgroundDimEnabled">true</item>
+     </style>
+    
 </resources>
