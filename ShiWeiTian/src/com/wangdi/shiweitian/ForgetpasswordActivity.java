@@ -35,6 +35,7 @@ public class ForgetpasswordActivity	extends Activity {
 		TextView back,promptone;
 		EditText phonenumb,code;
 		Button getsms,next;
+		boolean check;
 		
 		private static String APPKEY="15e33a34bd368";
 		private static String APPSECRET="fcabe53739edca54187d1604b186fbdf";
@@ -85,8 +86,11 @@ public class ForgetpasswordActivity	extends Activity {
 				
 					break;
 				case R.id.next:
+					if(check){
 					SMSSDK.submitVerificationCode("86", phString, code.getText().toString());
-					
+					}else{
+						Toast.makeText(ForgetpasswordActivity.this, "请获取验证码", Toast.LENGTH_SHORT).show();
+					}
 					break;
 
 				default:
@@ -225,6 +229,7 @@ public class ForgetpasswordActivity	extends Activity {
 	    			String message = jsonObject.getString("message");
 	    			if(status==2){
 	    			promptone.setText(" ");
+	    			check=true;
 	    			getsms(phonenumb.getText().toString());
 	    			}else{
 	    			promptone.setText("没有该账号");

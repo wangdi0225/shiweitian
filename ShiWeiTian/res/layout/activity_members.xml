@@ -1,135 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-     >
-     
+    android:layout_height="fill_parent" >
+
     <TextView
-    android:id="@+id/members_nowplay"
-    android:layout_width="fill_parent"
-    android:layout_height="45dp"
-    android:layout_alignParentBottom="true"
-    android:background="@color/VIPgold"
-    android:gravity="center"
-    android:text="@string/nowpayment"
-    android:textColor="@color/white"
-    android:textSize="14sp" />
-    
-<LinearLayout 
-    android:layout_above="@id/members_nowplay"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/members_hui"
-     >
-    
-    
-    <RelativeLayout 
+        android:id="@+id/members_nowplay"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        >
-        <ImageView 
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/members_back"
-            android:paddingTop="13dp"
-            android:paddingLeft="10dp"
-           
-            />
-        
-        <TextView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/startmembers"
-            android:layout_centerInParent="true"
-            android:textSize="16sp"
-            android:padding="12dp"
-            />
-        
-    </RelativeLayout>
-    
-    <LinearLayout 
-        android:layout_marginTop="13dp"
-        android:layout_width="fill_parent"
-        android:layout_height="35dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-       >
-        <TextView 
-            
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/nowuser"
-            android:textSize="16sp"
-            />
-        <TextView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="微厨"
-            android:textSize="14sp"
-            android:layout_marginTop="9dp"
-            
-            />
-        
-       </LinearLayout> 
-        
-        <TextView 
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/VIPgold"
+        android:gravity="center"
+        android:text="@string/nowpayment"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:layout_above="@id/members_nowplay"
+        android:background="@color/members_hui"
+        android:orientation="vertical" >
+
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/VIPGold"
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="13dp"
+                android:src="@drawable/members_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="12dp"
+                android:text="@string/startmembers"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="13dp"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="9dp"
+                android:text="@string/nowuser"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="微厨"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:background="@color/white"
             android:padding="10dp"
-            android:layout_marginTop="12dp"
+            android:text="@string/VIPGold"
             android:textColor="@color/VIPgold"
-            android:textSize="14sp"
-            />
-       
+            android:textSize="14sp" />
 
-   			<GridView 
-   			android:layout_marginTop="1dp"
-   			android:id="@+id/sion_listview_gridview"
-    	    android:layout_width="fill_parent"
-    	    android:layout_height="189dp"
-    	    android:numColumns="2"
-    	    android:paddingLeft="13dp"
-    	    android:paddingRight="13dp"
-    	    android:paddingTop="17dp"
-    	    android:background="@color/white"
-    	    android:horizontalSpacing="13dp"   
-   			android:verticalSpacing="11dp"   
-   			>
-   			    
-   			    
-   			</GridView>
-   			
-   			<TextView 
-   			    android:layout_width="fill_parent"
-   			    android:layout_height="wrap_content"
-   			    android:text="@string/choosegoplay"
-   			    android:background="@color/white"
-   			    android:layout_marginTop="12dp"
-   			    android:textSize="14sp"
-   			 	android:padding="8dp"
-   			    />
-		<ListView 
-		    android:id="@+id/members_listview"
-		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
-		    android:layout_marginTop="1dp"
-		    >
-		 </ListView>
-		
-		
-		
-</LinearLayout>
+        <GridView
+            android:id="@+id/sion_listview_gridview"
+            android:layout_width="fill_parent"
+            android:layout_height="189dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:horizontalSpacing="13dp"
+            android:numColumns="2"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:paddingTop="17dp"
+            android:verticalSpacing="11dp" >
+        </GridView>
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:padding="8dp"
+            android:text="@string/choosegoplay"
+            android:textSize="14sp" />
 
+        <ListView
+            android:id="@+id/members_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="1dp" >
+        </ListView>
+    </LinearLayout>
 
 </RelativeLayout>
