@@ -52,7 +52,7 @@ public class WodeFragment extends Fragment {
 		textViewdsh = (TextView) v.findViewById(R.id.wode_daishouhuo);
 		textViewdpj = (TextView) v.findViewById(R.id.wode_daipingjia);
 		textViewdfk.setOnClickListener(onClickListener);
-		textViewdfh.setOnClickListener(onClickListener);
+		textViewdfh.setOnClickListener(onClickListener); 
 		textViewdsh.setOnClickListener(onClickListener);
 		textViewdpj.setOnClickListener(onClickListener);
 		return v;

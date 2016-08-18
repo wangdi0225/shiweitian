@@ -72,6 +72,9 @@
         <activity
             android:name="com.wangdi.shiweitian.SousuoActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name="com.wangdi.shiweitian.ShipingbofangActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
