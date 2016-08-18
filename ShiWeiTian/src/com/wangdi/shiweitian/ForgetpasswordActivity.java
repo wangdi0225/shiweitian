@@ -124,7 +124,7 @@ public class ForgetpasswordActivity	extends Activity {
 		public void getsms(String str){
 				SMSSDK.getVerificationCode("86",str);
 				phString=str;
-				
+				Toast.makeText(ForgetpasswordActivity.this, "正在发送", Toast.LENGTH_SHORT).show();
 		}
 		
 		Handler mHandler = new Handler()
