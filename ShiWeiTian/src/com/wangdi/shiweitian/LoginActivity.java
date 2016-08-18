@@ -82,11 +82,11 @@ public class LoginActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.login:
 
-				//loginmain();
+				loginmain();
 
-				// login();
+				
 
-				logintype(username.getText().toString(), password.getText().toString());
+				//logintype(username.getText().toString(), password.getText().toString());
 
 				break;
 
@@ -114,10 +114,7 @@ public class LoginActivity extends Activity {
 		}
 	};
 
-	// 登录验证账号密码方法
-	public void login() {
-		logintype(username.getText().toString(), password.getText().toString());
-	}
+	
 
 	// 忘记密码跳转密码找回界面
 	public void forgotpassword() {
