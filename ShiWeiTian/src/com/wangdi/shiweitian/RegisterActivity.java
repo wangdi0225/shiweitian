@@ -119,6 +119,7 @@ public class RegisterActivity extends Activity {
 		private String phString;
 		public void getSMS(String str){
 			if(isMobileNO(str)){
+				Toast.makeText(RegisterActivity.this, "正在发送", Toast.LENGTH_SHORT).show();
 					SMSSDK.getVerificationCode("86",str);   
 					//SMSSDK.getVoiceVerifyCode("86",phonEditText.getText().toString());
 					phString=str;
@@ -151,7 +152,7 @@ public class RegisterActivity extends Activity {
 				
 				if (result == SMSSDK.RESULT_COMPLETE) {
 					if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-					        	Toast.makeText(getApplicationContext(), "发送验证码成功", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "发送验证码成功", Toast.LENGTH_SHORT).show();
 					}else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {//提交验证码成功
 								Toast.makeText(getApplicationContext(), "注册成功", Toast.LENGTH_SHORT).show();
 								write(phString);
