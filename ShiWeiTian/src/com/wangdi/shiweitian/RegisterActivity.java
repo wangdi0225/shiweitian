@@ -13,6 +13,8 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.wangdi.shiweitian.product.Httptype;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -100,10 +102,6 @@ public class RegisterActivity extends Activity {
 					break;
 				case R.id.getSMS:
 					read(phonenumb.getText().toString());
-				
-						
-					
-					
 					break;
 				case R.id.register:
 					saveuser();
@@ -133,8 +131,7 @@ public class RegisterActivity extends Activity {
 		//判断验证码是否正确,用户协议是否打钩方法
 		public void saveuser(){
 			if(check){
-					SMSSDK.submitVerificationCode("86", phString, sms.getText().toString());
-					
+				SMSSDK.submitVerificationCode("86", phString, sms.getText().toString());
 				}else{
 				Toast.makeText(this, "请阅读用户协议", Toast.LENGTH_SHORT).show();}
 		}
@@ -159,7 +156,6 @@ public class RegisterActivity extends Activity {
 								Toast.makeText(getApplicationContext(), "注册成功", Toast.LENGTH_SHORT).show();
 								write(phString);
 								go_user();
-								
 					} 
 			} else {
 				int status = 0;	
@@ -215,57 +211,14 @@ public class RegisterActivity extends Activity {
 		}
 		//判断数据是否已存在
 		String str1;
+		Httptype httptype =new Httptype();
 		public void read(final String username) {
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
-					
-					StringBuilder builder = new StringBuilder();
-					try {
-						String httpHost = "http://192.168.1.152/index.php/Home/api/read";
-						String name = "username="+username;
-						String urlName = httpHost + "?" + name;
-						URL url = new URL(urlName);
-						HttpURLConnection connection = (HttpURLConnection) url
-								.openConnection();
-						connection.setConnectTimeout(5000);
-						connection.setRequestProperty("accept", "*/*");// 设置客户端接受那些类型的信息，通配符代表接收所有类型的数据
-						connection.setRequestProperty("connection", "Keep-Alive");// 保持长链接
-						connection
-								.setRequestProperty("user-agent",
-										"Mozilla/4.0(compatible;MSIE 6.0;Windows NT5.1;SV1)");// 设置浏览器代理
-						connection
-								.setRequestProperty("accept-charset", "utf-8;GBK");// 客户端接受的字符集
-						connection.connect();// 建立连接
-						InputStream inputStream = connection.getInputStream();
-						Map<String, List<String>> headers = connection
-								.getHeaderFields();
-						for (String key : headers.keySet()) {
-							System.out.println(key + "----" + headers.get(key));
-
-						}
-						BufferedReader bufferedReader = new BufferedReader(
-								new InputStreamReader(inputStream));
-						String line = bufferedReader.readLine();
-						while (line != null && line.length() > 0) {
-							builder.append(line);
-							line = bufferedReader.readLine();
-						}
-						bufferedReader.close();
-						inputStream.close();
-						Log.i("builder-----", builder.toString());
-						str1 = builder.toString();
-						phoneHandler.sendEmptyMessage(0);
-						} catch (MalformedURLException e) {
-						// TODO 自动生成的 catch 块
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO 自动生成的 catch 块
-						e.printStackTrace();
-					}
+					str1=httptype.read(username);
+					phoneHandler.sendEmptyMessage(0);
 				}
-				
-			
 			}).start();
 		}
 		Handler phoneHandler = new Handler() {  
@@ -285,7 +238,6 @@ public class RegisterActivity extends Activity {
 	    			// TODO 自动生成的 catch 块
 	    			e.printStackTrace();
 	    		}
-	            
 	        }   
 	   };
 	
@@ -296,53 +248,8 @@ public class RegisterActivity extends Activity {
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
-					
-					StringBuilder builder = new StringBuilder();
-					try {
-						String httpHost = "http://192.168.1.152/index.php/Home/api/add";
-						String name = "username="+username;
-						String urlName = httpHost + "?" + name;
-						URL url = new URL(urlName);
-						HttpURLConnection connection = (HttpURLConnection) url
-								.openConnection();
-						connection.setConnectTimeout(5000);
-						connection.setRequestProperty("accept", "*/*");// 设置客户端接受那些类型的信息，通配符代表接收所有类型的数据
-						connection.setRequestProperty("connection", "Keep-Alive");// 保持长链接
-						connection
-								.setRequestProperty("user-agent",
-										"Mozilla/4.0(compatible;MSIE 6.0;Windows NT5.1;SV1)");// 设置浏览器代理
-						connection
-								.setRequestProperty("accept-charset", "utf-8;GBK");// 客户端接受的字符集
-						connection.connect();// 建立连接
-						InputStream inputStream = connection.getInputStream();
-						Map<String, List<String>> headers = connection
-								.getHeaderFields();
-						for (String key : headers.keySet()) {
-							System.out.println(key + "----" + headers.get(key));
-
-						}
-						BufferedReader bufferedReader = new BufferedReader(
-								new InputStreamReader(inputStream));
-						String line = bufferedReader.readLine();
-						while (line != null && line.length() > 0) {
-							builder.append(line);
-							line = bufferedReader.readLine();
-						}
-						bufferedReader.close();
-						inputStream.close();
-						Log.i("builder-----", builder.toString());
-						
-						
-					} catch (MalformedURLException e) {
-						// TODO 自动生成的 catch 块
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO 自动生成的 catch 块
-						e.printStackTrace();
-					}
+					httptype.write(username);
 				}
-				
-			
 			}).start();
 		}
 		
