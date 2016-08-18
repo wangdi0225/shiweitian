@@ -27,9 +27,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sina.weibo.sdk.auth.AuthInfo;
-import com.wangdi.shiweitian.R;
-import com.wangdi.shiweitian.product.Constants;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+
 
 
 public class LoginActivity extends Activity {
@@ -37,8 +39,9 @@ public class LoginActivity extends Activity {
 	TextView  forgotpassword, registernow,prompt;
 	ImageView loginqq, loginweixing, loginweibo;
 	EditText username,password;
-	private AuthInfo mAuthInfo;
 
+	UMShareAPI mShareAPI = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -60,10 +63,15 @@ public class LoginActivity extends Activity {
 		forgotpassword.setOnClickListener(onClickListener);
 		registernow.setOnClickListener(onClickListener);
 		login.setOnClickListener(onClickListener);
+		
+		
 
 		
-		mAuthInfo = new AuthInfo(this, Constants.APP_KEY, 
-				Constants.REDIRECT_URL, Constants.SCOPE);
+		
+		PlatformConfig.setQQZone("1105621986", "pUub4oHhuKSKXUyz"); 
+	     // QQ和Qzone appid appkey     
+		PlatformConfig.setSinaWeibo("1689579222","8cb1ae1ac5e49b4838607183f8b6e954");
+		 //新浪微博 appkey appsecret
 	}
 
 	OnClickListener onClickListener = new OnClickListener() {
@@ -73,9 +81,7 @@ public class LoginActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.login:
-				Intent intent = new Intent();
-				intent.setClass(LoginActivity.this, MainActivity.class);
-				startActivity(intent);
+				loginmain();
 				
 				//login();
 				break;
@@ -132,13 +138,21 @@ public class LoginActivity extends Activity {
 
 	// QQ登录
 	public void QQlogin() {
-		Toast.makeText(this, "QQ登录尚未开发", Toast.LENGTH_SHORT).show();
+		mShareAPI=UMShareAPI.get(this);
+		SHARE_MEDIA platform = SHARE_MEDIA.QQ; 
+		//mShareAPI.isInstall(this, SHARE_MEDIA.QQ);
+		mShareAPI.doOauthVerify(LoginActivity.this, platform, umAuthListener);
+		//mShareAPI.getPlatformInfo(LoginActivity.this, platformqq, umAuthListener);
 	}
 
 	// 微博登录
 	public void WeiBologin() {
-		Toast.makeText(this, "微博登录尚未开发", Toast.LENGTH_SHORT).show();
-	}
+		mShareAPI=UMShareAPI.get(this);
+		SHARE_MEDIA platform = SHARE_MEDIA.SINA; 
+		//mShareAPI.isInstall(this, SHARE_MEDIA.SINA);
+		mShareAPI.doOauthVerify(LoginActivity.this, platform, umAuthListener);
+		//mShareAPI.getPlatformInfo(LoginActivity.this, platformsina, umAuthListener);
+		}
 
 	// 微信登录
 	public void WeiXinglogin() {
@@ -146,12 +160,42 @@ public class LoginActivity extends Activity {
 	}
 	
 	
+	
+	
+	
+	private UMAuthListener umAuthListener = new UMAuthListener() {
+	        @Override
+	        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+	           Log.i("登录成功返回", data.toString());
+	           loginmain();
+	         
+	        }
+
+	        @Override
+	        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
+	            Toast.makeText( getApplicationContext(), "登录失败", Toast.LENGTH_SHORT).show();
+	            
+	        }
+
+	        @Override
+	        public void onCancel(SHARE_MEDIA platform, int action) {
+	            Toast.makeText( getApplicationContext(), "取消登录", Toast.LENGTH_SHORT).show();
+	        }
+	    };
+	
+	   
+	    
+	   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	        super.onActivityResult(requestCode, resultCode, data);
+	        mShareAPI.onActivityResult(requestCode, resultCode, data);
+	    } 
+	    
+	//调用登录借口
 	String str;
 	public void logintype(final String username ,final String password) {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				
 				StringBuilder builder = new StringBuilder();
 				try {
 					String httpHost = "http://192.168.1.152/index.php/Home/api/login";
@@ -212,9 +256,7 @@ public class LoginActivity extends Activity {
     			prompt.setText(message);
     			
     			}else{
-    				Intent intent = new Intent();
-    				intent.setClass(LoginActivity.this, MainActivity.class);
-    				startActivity(intent);
+    				loginmain();
     			}
     			
     		} catch (JSONException e) {
@@ -224,6 +266,12 @@ public class LoginActivity extends Activity {
             
         }   
    };
-	
+	public void loginmain(){
+		
+		Intent intent = new Intent();
+		intent.setClass(LoginActivity.this, MainActivity.class);
+		startActivity(intent);
+		finish();
+	}
 	
 }
