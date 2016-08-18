@@ -40,8 +40,8 @@ public class LoginActivity extends Activity {
 	ImageView loginqq, loginweixing, loginweibo;
 	EditText username,password;
 
-	//UMShareAPI mShareAPI = UMShareAPI.get(this);
-
+	UMShareAPI mShareAPI = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -67,11 +67,10 @@ public class LoginActivity extends Activity {
 		
 
 		
-		//PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
-	       //微信 appid appsecret
-		//PlatformConfig.setQQZone("1105621986", "pUub4oHhuKSKXUyz"); 
-	        // QQ和Qzone appid appkey     
-		//PlatformConfig.setSinaWeibo("1689579222","8cb1ae1ac5e49b4838607183f8b6e954");
+		
+		PlatformConfig.setQQZone("1105621986", "pUub4oHhuKSKXUyz"); 
+	     // QQ和Qzone appid appkey     
+		PlatformConfig.setSinaWeibo("1689579222","8cb1ae1ac5e49b4838607183f8b6e954");
 		 //新浪微博 appkey appsecret
 	}
 
@@ -139,21 +138,24 @@ public class LoginActivity extends Activity {
 
 	// QQ登录
 	public void QQlogin() {
+		mShareAPI=UMShareAPI.get(this);
+		SHARE_MEDIA platform = SHARE_MEDIA.QQ; 
 		//mShareAPI.isInstall(this, SHARE_MEDIA.QQ);
-		//mShareAPI.doOauthVerify(LoginActivity.this, platformqq, umAuthListener);
+		mShareAPI.doOauthVerify(LoginActivity.this, platform, umAuthListener);
 		//mShareAPI.getPlatformInfo(LoginActivity.this, platformqq, umAuthListener);
 	}
 
 	// 微博登录
 	public void WeiBologin() {
+		mShareAPI=UMShareAPI.get(this);
+		SHARE_MEDIA platform = SHARE_MEDIA.SINA; 
 		//mShareAPI.isInstall(this, SHARE_MEDIA.SINA);
-		//mShareAPI.doOauthVerify(LoginActivity.this, platformsina, umAuthListener);
+		mShareAPI.doOauthVerify(LoginActivity.this, platform, umAuthListener);
 		//mShareAPI.getPlatformInfo(LoginActivity.this, platformsina, umAuthListener);
 		}
 
 	// 微信登录
 	public void WeiXinglogin() {
-		
 		Toast.makeText(this, "微信登录尚未开发", Toast.LENGTH_SHORT).show();
 	}
 	
@@ -161,28 +163,23 @@ public class LoginActivity extends Activity {
 	
 	
 	
-/*	SHARE_MEDIA platformsina = SHARE_MEDIA.SINA; 
-	SHARE_MEDIA platformweixin = SHARE_MEDIA.WEIXIN; 
-	SHARE_MEDIA platformqq = SHARE_MEDIA.QQ; 
-	
 	private UMAuthListener umAuthListener = new UMAuthListener() {
 	        @Override
 	        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-	           Toast.makeText( getApplicationContext(), "Authorize succeed", Toast.LENGTH_SHORT).show();
 	           Log.i("登录成功返回", data.toString());
 	           loginmain();
-	         *
+	         
 	        }
 
 	        @Override
 	        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-	            Toast.makeText( getApplicationContext(), "Authorize fail", Toast.LENGTH_SHORT).show();
+	            Toast.makeText( getApplicationContext(), "登录失败", Toast.LENGTH_SHORT).show();
 	            
 	        }
 
 	        @Override
 	        public void onCancel(SHARE_MEDIA platform, int action) {
-	            Toast.makeText( getApplicationContext(), "Authorize cancel", Toast.LENGTH_SHORT).show();
+	            Toast.makeText( getApplicationContext(), "取消登录", Toast.LENGTH_SHORT).show();
 	        }
 	    };
 	
@@ -191,7 +188,7 @@ public class LoginActivity extends Activity {
 	   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	        super.onActivityResult(requestCode, resultCode, data);
 	        mShareAPI.onActivityResult(requestCode, resultCode, data);
-	    } */
+	    } 
 	    
 	//调用登录借口
 	String str;

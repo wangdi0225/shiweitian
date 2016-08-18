@@ -88,13 +88,7 @@
             android:name="com.wangdi.shiweitian.Resgiterjump"
             android:launchMode="singleTask" />
 
-        <!-- 微信平台 -->
-        <activity
-            android:name="com.umeng.soexample.wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+       
         <!-- 微博平台 -->
         <activity
             android:name=".WBShareActivity"
