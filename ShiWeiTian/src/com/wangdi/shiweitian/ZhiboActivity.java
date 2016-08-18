@@ -31,7 +31,7 @@ public class ZhiboActivity extends Activity {
 	OnItemSelectedListener itemClickListener;
 	OnClickListener onClickListener;
 
-<<<<<<< HEAD
+
 
 	TextView textView;
 

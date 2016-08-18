@@ -32,16 +32,14 @@ import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
-
-
 public class LoginActivity extends Activity {
 	RelativeLayout login;
-	TextView  forgotpassword, registernow,prompt;
+	TextView forgotpassword, registernow, prompt;
 	ImageView loginqq, loginweixing, loginweibo;
-	EditText username,password;
+	EditText username, password;
 
 	UMShareAPI mShareAPI = null;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -50,9 +48,9 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 		login = (RelativeLayout) findViewById(R.id.login);
 		forgotpassword = (TextView) findViewById(R.id.forgotpassword);
-		prompt=(TextView) findViewById(R.id.prompt);
-		username=(EditText) findViewById(R.id.username);
-		password=(EditText) findViewById(R.id.password);
+		prompt = (TextView) findViewById(R.id.prompt);
+		username = (EditText) findViewById(R.id.username);
+		password = (EditText) findViewById(R.id.password);
 		registernow = (TextView) findViewById(R.id.registernow);
 		loginqq = (ImageView) findViewById(R.id.qq);
 		loginweibo = (ImageView) findViewById(R.id.weibo);
@@ -63,15 +61,15 @@ public class LoginActivity extends Activity {
 		forgotpassword.setOnClickListener(onClickListener);
 		registernow.setOnClickListener(onClickListener);
 		login.setOnClickListener(onClickListener);
-		
-		
 
-		
-		
-		PlatformConfig.setQQZone("1105621986", "pUub4oHhuKSKXUyz"); 
-	     // QQ和Qzone appid appkey     
-		PlatformConfig.setSinaWeibo("1689579222","8cb1ae1ac5e49b4838607183f8b6e954");
-		 //新浪微博 appkey appsecret
+		PlatformConfig.setWeixin("wxf65af94a2f31a2dd",
+				"e05f09078bf0096fe27359381ab9ea4c");
+
+		PlatformConfig.setQQZone("1105621986", "pUub4oHhuKSKXUyz");
+		// QQ和Qzone appid appkey
+		PlatformConfig.setSinaWeibo("1689579222",
+				"8cb1ae1ac5e49b4838607183f8b6e954");
+		// 新浪微博 appkey appsecret
 	}
 
 	OnClickListener onClickListener = new OnClickListener() {
@@ -81,12 +79,11 @@ public class LoginActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.login:
-				loginmain();
-				
-				//login();
+				loginmain(null);
+
+				// login();
 				break;
-			
-				
+
 			case R.id.forgotpassword:
 				forgotpassword();
 				;
@@ -114,10 +111,7 @@ public class LoginActivity extends Activity {
 	// 登录验证账号密码方法
 	public void login() {
 		logintype(username.getText().toString(), password.getText().toString());
-		}
-
-	
-	
+	}
 
 	// 忘记密码跳转密码找回界面
 	public void forgotpassword() {
@@ -138,68 +132,96 @@ public class LoginActivity extends Activity {
 
 	// QQ登录
 	public void QQlogin() {
-		mShareAPI=UMShareAPI.get(this);
-		SHARE_MEDIA platform = SHARE_MEDIA.QQ; 
-		//mShareAPI.isInstall(this, SHARE_MEDIA.QQ);
+		mShareAPI = UMShareAPI.get(this);
+		SHARE_MEDIA platform = SHARE_MEDIA.QQ;
+		// mShareAPI.isInstall(this, SHARE_MEDIA.QQ);
 		mShareAPI.doOauthVerify(LoginActivity.this, platform, umAuthListener);
-		//mShareAPI.getPlatformInfo(LoginActivity.this, platformqq, umAuthListener);
+		// mShareAPI.getPlatformInfo(LoginActivity.this, platform,
+		// umAuthListener);
 	}
 
 	// 微博登录
 	public void WeiBologin() {
-		mShareAPI=UMShareAPI.get(this);
-		SHARE_MEDIA platform = SHARE_MEDIA.SINA; 
-		//mShareAPI.isInstall(this, SHARE_MEDIA.SINA);
+		mShareAPI = UMShareAPI.get(this);
+		SHARE_MEDIA platform = SHARE_MEDIA.SINA;
+		// mShareAPI.isInstall(this, SHARE_MEDIA.SINA);
 		mShareAPI.doOauthVerify(LoginActivity.this, platform, umAuthListener);
-		//mShareAPI.getPlatformInfo(LoginActivity.this, platformsina, umAuthListener);
-		}
+
+	}
 
 	// 微信登录
 	public void WeiXinglogin() {
-		Toast.makeText(this, "微信登录尚未开发", Toast.LENGTH_SHORT).show();
+		mShareAPI = UMShareAPI.get(this);
+		SHARE_MEDIA platform = SHARE_MEDIA.WEIXIN;
+		// mShareAPI.isInstall(this, SHARE_MEDIA.SINA);
+		mShareAPI.doOauthVerify(LoginActivity.this, platform, umAuthListener);
+		// mShareAPI.deleteOauth(LoginActivity.this, platform,
+		// umdelAuthListener);
 	}
-	
-	
-	
-	
-	
+
+	private UMAuthListener getAuthListener = new UMAuthListener() {
+
+		@Override
+		public void onCancel(SHARE_MEDIA arg0, int arg1) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onComplete(SHARE_MEDIA arg0, int arg1,
+				Map<String, String> arg2) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onError(SHARE_MEDIA arg0, int arg1, Throwable arg2) {
+			// TODO Auto-generated method stub
+
+		}
+
+	};
+
 	private UMAuthListener umAuthListener = new UMAuthListener() {
-	        @Override
-	        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-	           Log.i("登录成功返回", data.toString());
-	           loginmain();
-	         
-	        }
+		@Override
+		public void onComplete(SHARE_MEDIA platform, int action,
+				Map<String, String> data) {
+			Log.i("登录成功返回", data.toString());
+			loginmain(platform);
 
-	        @Override
-	        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-	            Toast.makeText( getApplicationContext(), "登录失败", Toast.LENGTH_SHORT).show();
-	            
-	        }
+		}
 
-	        @Override
-	        public void onCancel(SHARE_MEDIA platform, int action) {
-	            Toast.makeText( getApplicationContext(), "取消登录", Toast.LENGTH_SHORT).show();
-	        }
-	    };
-	
-	   
-	    
-	   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	        super.onActivityResult(requestCode, resultCode, data);
-	        mShareAPI.onActivityResult(requestCode, resultCode, data);
-	    } 
-	    
-	//调用登录借口
+		@Override
+		public void onError(SHARE_MEDIA platform, int action, Throwable t) {
+			Toast.makeText(getApplicationContext(), "登录失败", Toast.LENGTH_SHORT)
+					.show();
+
+		}
+
+		@Override
+		public void onCancel(SHARE_MEDIA platform, int action) {
+			Toast.makeText(getApplicationContext(), "取消登录", Toast.LENGTH_SHORT)
+					.show();
+		}
+	};
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		mShareAPI.onActivityResult(requestCode, resultCode, data);
+	}
+
+	// 调用登录借口
 	String str;
-	public void logintype(final String username ,final String password) {
+
+	public void logintype(final String username, final String password) {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				StringBuilder builder = new StringBuilder();
 				try {
 					String httpHost = "http://192.168.1.152/index.php/Home/api/login";
-					String name = "username="+username+"&password="+password;
+					String name = "username=" + username + "&password="
+							+ password;
 					String urlName = httpHost + "?" + name;
 					URL url = new URL(urlName);
 					HttpURLConnection connection = (HttpURLConnection) url
@@ -232,7 +254,7 @@ public class LoginActivity extends Activity {
 					Log.i("builder-----", builder.toString());
 					str = builder.toString();
 					myHandler.sendEmptyMessage(0);
-					
+
 				} catch (MalformedURLException e) {
 					// TODO 自动生成的 catch 块
 					e.printStackTrace();
@@ -241,37 +263,38 @@ public class LoginActivity extends Activity {
 					e.printStackTrace();
 				}
 			}
-			
-		
+
 		}).start();
 	}
-	
-	Handler myHandler = new Handler() {  
-        public void handleMessage(Message msg) {   
-        	try {
-    			JSONObject jsonObject = new JSONObject(str);
-    			int status = jsonObject.getInt("status");
-    			String message = jsonObject.getString("message");
-    			if(status==2){
-    			prompt.setText(message);
-    			
-    			}else{
-    				loginmain();
-    			}
-    			
-    		} catch (JSONException e) {
-    			// TODO 自动生成的 catch 块
-    			e.printStackTrace();
-    		}
-            
-        }   
-   };
-	public void loginmain(){
-		
+
+	Handler myHandler = new Handler() {
+		public void handleMessage(Message msg) {
+			try {
+				JSONObject jsonObject = new JSONObject(str);
+				int status = jsonObject.getInt("status");
+				String message = jsonObject.getString("message");
+				if (status == 2) {
+					prompt.setText(message);
+
+				} else {
+					loginmain(null);
+				}
+
+			} catch (JSONException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+
+		}
+	};
+
+	public void loginmain(SHARE_MEDIA platform) {
+		mShareAPI
+				.getPlatformInfo(LoginActivity.this, platform, getAuthListener);
 		Intent intent = new Intent();
 		intent.setClass(LoginActivity.this, MainActivity.class);
 		startActivity(intent);
 		finish();
 	}
-	
+
 }
