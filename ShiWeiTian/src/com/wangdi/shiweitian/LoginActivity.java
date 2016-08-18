@@ -79,7 +79,7 @@ public class LoginActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.login:
-				loginmain(null);
+				loginmain();
 
 				// login();
 				break;
@@ -187,7 +187,8 @@ public class LoginActivity extends Activity {
 		public void onComplete(SHARE_MEDIA platform, int action,
 				Map<String, String> data) {
 			Log.i("登录成功返回", data.toString());
-			loginmain(platform);
+			mShareAPI.getPlatformInfo(LoginActivity.this, platform, getAuthListener);
+			loginmain();
 
 		}
 
@@ -277,7 +278,7 @@ public class LoginActivity extends Activity {
 					prompt.setText(message);
 
 				} else {
-					loginmain(null);
+					loginmain();
 				}
 
 			} catch (JSONException e) {
@@ -288,9 +289,8 @@ public class LoginActivity extends Activity {
 		}
 	};
 
-	public void loginmain(SHARE_MEDIA platform) {
-		mShareAPI
-				.getPlatformInfo(LoginActivity.this, platform, getAuthListener);
+	public void loginmain() {
+		
 		Intent intent = new Intent();
 		intent.setClass(LoginActivity.this, MainActivity.class);
 		startActivity(intent);
