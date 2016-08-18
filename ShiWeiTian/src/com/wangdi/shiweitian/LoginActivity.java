@@ -82,11 +82,11 @@ public class LoginActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.login:
 
-				//loginmain();
+				loginmain();
 
 				// login();
 
-				logintype(username.getText().toString(), password.getText().toString());
+				//logintype(username.getText().toString(), password.getText().toString());
 
 				break;
 

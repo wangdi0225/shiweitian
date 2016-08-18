@@ -87,7 +87,6 @@
         <activity
             android:name="com.wangdi.shiweitian.Resgiterjump"
             android:launchMode="singleTask" />
-
         <activity
             android:name="com.wangdi.shiweitian.ShipingbofangActivity"
             android:launchMode="singleTask" />
@@ -155,7 +154,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
     </application>
 
 </manifest>
