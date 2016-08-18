@@ -84,7 +84,7 @@ public class LoginActivity extends Activity {
 
 				loginmain();
 
-				// login();
+				
 
 				//logintype(username.getText().toString(), password.getText().toString());
 
@@ -114,10 +114,7 @@ public class LoginActivity extends Activity {
 		}
 	};
 
-	// 登录验证账号密码方法
-	public void login() {
-		logintype(username.getText().toString(), password.getText().toString());
-	}
+	
 
 	// 忘记密码跳转密码找回界面
 	public void forgotpassword() {
