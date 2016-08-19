@@ -46,11 +46,6 @@ public class MyData extends Activity implements View.OnClickListener {
 	TextView name_data, sex_data, diqu_data, qianming, shouji_data,
 			youxiang_data, tuichu_data, dj_tx;
 	private String[] items = new String[] { "选择本地图片", "拍照" };
-	private static final String IMAGE_FILE_NAME = "rub_course_default_user_icon.png";
-	private static final int IMAGE_REQUEST_CODE = 0;
-	private static final int CAMERA_REQUEST_CODE = 1;
-	private static final int RESULT_REQUEST_CODE = 2;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -138,31 +133,22 @@ public class MyData extends Activity implements View.OnClickListener {
 
 	private void replaceTx() {
 		new AlertDialog.Builder(this,R.style.AlertDialog_style)
-				
 				.setItems(items, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						switch (which) {
 						case 0:
-							Intent intentFromGallery = new Intent();
-							intentFromGallery.setType("image/*"); // 设置文件类型
-							intentFromGallery
-									.setAction(Intent.ACTION_GET_CONTENT);
-							startActivityForResult(intentFromGallery,
-									IMAGE_REQUEST_CODE);
+							Intent i = new Intent();
+							i.setType("image/*"); // 设置文件类型
+							i.setAction(Intent.ACTION_GET_CONTENT);
+							startActivityForResult(i,0);
 							break;
 						case 1:
-							Intent intentFromCapture = new Intent(
-									MediaStore.ACTION_IMAGE_CAPTURE);
+							Intent j = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 							// 判断存储卡是否可以用，可用进行存储
 							if (hasSdcard()) {
-								intentFromCapture.putExtra(
-										MediaStore.EXTRA_OUTPUT,
-										Uri.fromFile(new File(Environment
-												.getExternalStorageDirectory(),
-												IMAGE_FILE_NAME)));
+								j.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(Environment.getExternalStorageDirectory(),"rub_course_default_user_icon.png")));
 							}
-							startActivityForResult(intentFromCapture,
-									CAMERA_REQUEST_CODE);
+							startActivityForResult(j,1);
 							break;
 						}
 					}
@@ -173,24 +159,21 @@ public class MyData extends Activity implements View.OnClickListener {
 					}
 				}).show();
 	}
-
+	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
-		case IMAGE_REQUEST_CODE:
+		case 0:
 			startPhotoZoom(data.getData());
 			break;
-		case CAMERA_REQUEST_CODE:
+		case 1:
 			if (hasSdcard()) {
-				File tempFile = new File(
-						Environment.getExternalStorageDirectory()
-								+ IMAGE_FILE_NAME);
-				startPhotoZoom(Uri.fromFile(tempFile));
+				File file = new File(Environment.getExternalStorageDirectory()+ "rub_course_default_user_icon.png");
+				startPhotoZoom(Uri.fromFile(file));
 			} else {
-				Toast.makeText(MyData.this, "未找到存储卡，无法存储照片！", Toast.LENGTH_LONG)
-						.show();
+				Toast.makeText(MyData.this, "未找到存储卡，无法存储照片！", Toast.LENGTH_LONG).show();
 			}
 			break;
-		case RESULT_REQUEST_CODE:
+		case 2:
 			if (data != null) {
 				tx_data.setBackgroundDrawable(getImageToView(data));
 			}
@@ -205,7 +188,7 @@ public class MyData extends Activity implements View.OnClickListener {
 		// 设置裁剪
 		intent.putExtra("crop", "true");
 		// aspectX aspectY 是宽高的比例
-		intent.putExtra("aspectX", 1);
+		intent.putExtra("aspectX", 1.2);
 		intent.putExtra("aspectY", 1);
 		// outputX outputY 是裁剪图片宽高
 		intent.putExtra("outputX", 350);
@@ -215,16 +198,16 @@ public class MyData extends Activity implements View.OnClickListener {
 	}
 
 	private Drawable getImageToView(Intent data) {
-		Bundle extras = data.getExtras();
-		if (extras != null) {
-			Bitmap photo = extras.getParcelable("data");
-			Drawable drawable = new BitmapDrawable(photo);
+		Bundle bundle = data.getExtras();
+		if (bundle != null) {
+			Bitmap bitmap = bundle.getParcelable("data");
+			Drawable drawable = new BitmapDrawable(bitmap);
 			return drawable;
 		}
 		return null;
 	}
 
-	public static boolean hasSdcard() {
+	public static boolean hasSdcard() {//检查是否有内存卡
 		String state = Environment.getExternalStorageState();
 		if (state.equals(Environment.MEDIA_MOUNTED)) {
 			return true;
@@ -232,7 +215,7 @@ public class MyData extends Activity implements View.OnClickListener {
 			return false;
 		}
 	}
-
+	
 	private void bjname() {
 		LayoutInflater factory = LayoutInflater.from(MyData.this);
 		final View textEntryView = factory.inflate(R.layout.bianji_data, null);
@@ -257,8 +240,7 @@ public class MyData extends Activity implements View.OnClickListener {
 					try {
 						// 注意此处是通过反射，修改源代码类中的字段mShowing为true，系统会认为对话框打开
 						// 从而调用dismiss()
-						Field field = dialog.getClass().getSuperclass()
-								.getDeclaredField("mShowing");
+						Field field = dialog.getClass().getSuperclass().getDeclaredField("mShowing");
 						field.setAccessible(true);
 						field.set(dialog, false);
 						dialog.dismiss();

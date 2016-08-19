@@ -12,6 +12,7 @@
             android:layout_height="27dp"
             android:layout_marginTop="22dp">
             <TextView
+                android:id="@+id/image_file"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:text="上传成品效果图"
