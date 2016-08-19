@@ -81,12 +81,12 @@ public class LoginActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.login:
-
-				loginmain();
+				//直接登录
+				//loginmain();
 
 				
-
-				//logintype(username.getText().toString(), password.getText().toString());
+				//账号密码登录
+				logintype(username.getText().toString(), password.getText().toString());
 
 				break;
 
