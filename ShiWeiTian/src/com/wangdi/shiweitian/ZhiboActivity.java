@@ -1,8 +1,5 @@
 package com.wangdi.shiweitian;
 
-import java.util.List;
-import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,28 +9,22 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class ZhiboActivity extends Activity {
 
 	Spinner spinner;
-	ImageButton imageButton;
+	ImageButton imageButtonXiala;
 
-	List<Map<String, Object>> list;
-	String from[] = { "选择菜品类别", "川菜", "湘菜", "粤菜", "鲁菜" };
-
-	// ArrayAdapter arrayAdapter;
-	SimpleAdapter simpleAdapter;
-	View view;
 	OnItemSelectedListener itemClickListener;
 	OnClickListener onClickListener;
 
 
 
-	TextView textView;
+	TextView textView,zhibo;
 
 	ImageView imageView, shareWeiXin, shareQQ, shareWeiBo;
 
@@ -64,15 +55,17 @@ public class ZhiboActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zhibo_jiaoxue);
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_dropdown_item, strs);
-		Spinner spinner = (Spinner) findViewById(R.id.zhibo_spinner);
-		spinner.setAdapter(adapter);
+		arrayAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, strs);
+		spinner = (Spinner) findViewById(R.id.leibie_spinner);
+		spinner.setAdapter(arrayAdapter);
 		imageView = (ImageView) findViewById(R.id.zhibo_back);
-		imageView.setOnClickListener(clickListener);
-
-		imageView = (ImageView) findViewById(R.id.kaishi_zhibo);
-		imageView.setOnClickListener(clickListener);
+		
+		
+		imageButtonXiala=(ImageButton)findViewById(R.id.xiala_jiantou);
+		imageButtonXiala.setOnClickListener(clickListener);
+		zhibo = (TextView) findViewById(R.id.kaishi_zhibo);
+		zhibo.setOnClickListener(clickListener);
 
 		textView = (TextView) findViewById(R.id.neirong_anniu);
 		textView.setOnClickListener(clickListener);
@@ -123,6 +116,8 @@ public class ZhiboActivity extends Activity {
 
 				break;
 
+			
+				
 			case R.id.QQ_imageView:
 				Toast.makeText(ZhiboActivity.this, "丘丘分享", Toast.LENGTH_SHORT)
 						.show();
@@ -134,6 +129,11 @@ public class ZhiboActivity extends Activity {
 						.show();
 
 				break;
+				
+			case R.id.xiala_jiantou:
+				spinner.performClick();
+				
+				break;
 
 			default:
 				break;
@@ -141,34 +141,6 @@ public class ZhiboActivity extends Activity {
 		}
 	};
 
-	/*
-	 * @Override public void onClick(View v) { // TODO Auto-generated method
-	 * stub
-	 * 
-	 * switch (v.getId()) { case R.id.xiala_jiantou: spinner.performClick();
-	 * break;
-	 * 
-	 * default: break;
-	 * 
-	 * }
-	 */
-
-	/*
-	 * public void chushi() {
-	 * 
-	 * spinner = (Spinner) findViewById(R.id.zhibo_spinner);
-	 * 
-	 * imageButton = (ImageButton) findViewById(R.id.xiala_jiantou);
-	 * 
-	 * 
-	 * int to[] = { R.id.leibie, R.id.xiala_jiantou };
-	 * 
-	 * // arrayAdapter=new ArrayAdapter(getActivity(), //
-	 * R.layout.zhibo_item,strs);
-	 * 
-	 * // simpleAdapter = new SimpleAdapter(ZhiboActivity.this,list, from,to);
-	 * 
-	 * imageButton.setOnClickListener(this); }
-	 */
+	
 
 }
