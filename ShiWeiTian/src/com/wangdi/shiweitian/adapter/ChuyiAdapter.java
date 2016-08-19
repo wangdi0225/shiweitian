@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 public class ChuyiAdapter extends BaseAdapter {
 	LayoutInflater inflater;

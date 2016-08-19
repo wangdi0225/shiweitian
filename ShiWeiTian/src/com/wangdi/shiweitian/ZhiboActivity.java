@@ -12,9 +12,9 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ZhiboActivity extends Activity {
@@ -31,10 +31,16 @@ public class ZhiboActivity extends Activity {
 	OnItemSelectedListener itemClickListener;
 	OnClickListener onClickListener;
 
-	PopupWindow popupWindow;
-	private View show_popvieView;
 
-	ImageView imageView;
+
+	TextView textView;
+
+	ImageView imageView, shareWeiXin, shareQQ, shareWeiBo;
+
+
+	
+	
+
 
 	/*
 	 * public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +58,7 @@ public class ZhiboActivity extends Activity {
 	ArrayAdapter<String> arrayAdapter;
 	String strs[] = { "选择菜品类别", "川菜", "湘菜", "粤菜", "鲁菜" };
 
-	@Override
+ 	@Override
 	protected void onCreate(Bundle savedInstanceState) { // TODO
 		// Auto-generated method stub
 		super.onCreate(savedInstanceState);
@@ -64,6 +70,21 @@ public class ZhiboActivity extends Activity {
 		spinner.setAdapter(adapter);
 		imageView = (ImageView) findViewById(R.id.zhibo_back);
 		imageView.setOnClickListener(clickListener);
+
+		imageView = (ImageView) findViewById(R.id.kaishi_zhibo);
+		imageView.setOnClickListener(clickListener);
+
+		textView = (TextView) findViewById(R.id.neirong_anniu);
+		textView.setOnClickListener(clickListener);
+
+		shareWeiXin = (ImageView) findViewById(R.id.weixin_imageView);
+		shareQQ = (ImageView) findViewById(R.id.QQ_imageView);
+		shareWeiBo = (ImageView) findViewById(R.id.weibo_imageView);
+
+		shareWeiXin.setOnClickListener(clickListener);
+		shareQQ.setOnClickListener(clickListener);
+		shareWeiBo.setOnClickListener(clickListener);
+
 		// itemClickListener = (OnItemSelectedListener)
 		// findViewById(R.id.xiala_jiantou);
 
@@ -86,6 +107,30 @@ public class ZhiboActivity extends Activity {
 
 			case R.id.neirong_anniu:
 				Toast.makeText(ZhiboActivity.this, "提交内容", Toast.LENGTH_SHORT)
+						.show();
+
+				break;
+
+			case R.id.kaishi_zhibo:
+				Toast.makeText(ZhiboActivity.this, "直播", Toast.LENGTH_SHORT)
+						.show();
+
+				break;
+
+			case R.id.weixin_imageView:
+				Toast.makeText(ZhiboActivity.this, "微信分享", Toast.LENGTH_SHORT)
+						.show();
+
+				break;
+
+			case R.id.QQ_imageView:
+				Toast.makeText(ZhiboActivity.this, "丘丘分享", Toast.LENGTH_SHORT)
+						.show();
+
+				break;
+
+			case R.id.weibo_imageView:
+				Toast.makeText(ZhiboActivity.this, "微博分享", Toast.LENGTH_SHORT)
 						.show();
 
 				break;

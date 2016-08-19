@@ -13,6 +13,8 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.wangdi.shiweitian.product.Httptype;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +37,7 @@ public class ForgetpasswordActivity	extends Activity {
 		TextView back,promptone;
 		EditText phonenumb,code;
 		Button getsms,next;
+		boolean check;
 		
 		private static String APPKEY="15e33a34bd368";
 		private static String APPSECRET="fcabe53739edca54187d1604b186fbdf";
@@ -85,8 +88,11 @@ public class ForgetpasswordActivity	extends Activity {
 				
 					break;
 				case R.id.next:
+					if(check){
 					SMSSDK.submitVerificationCode("86", phString, code.getText().toString());
-					
+					}else{
+						Toast.makeText(ForgetpasswordActivity.this, "请获取验证码", Toast.LENGTH_SHORT).show();
+					}
 					break;
 
 				default:
@@ -118,7 +124,7 @@ public class ForgetpasswordActivity	extends Activity {
 		public void getsms(String str){
 				SMSSDK.getVerificationCode("86",str);
 				phString=str;
-				
+				Toast.makeText(ForgetpasswordActivity.this, "正在发送", Toast.LENGTH_SHORT).show();
 		}
 		
 		Handler mHandler = new Handler()
@@ -171,49 +177,9 @@ public class ForgetpasswordActivity	extends Activity {
 				@Override
 				public void run() {
 					
-					StringBuilder builder = new StringBuilder();
-					try {
-						String httpHost = "http://192.168.1.152/index.php/Home/api/read";
-						String name = "username="+username;
-						String urlName = httpHost + "?" + name;
-						URL url = new URL(urlName);
-						HttpURLConnection connection = (HttpURLConnection) url
-								.openConnection();
-						connection.setConnectTimeout(5000);
-						connection.setRequestProperty("accept", "*/*");// 设置客户端接受那些类型的信息，通配符代表接收所有类型的数据
-						connection.setRequestProperty("connection", "Keep-Alive");// 保持长链接
-						connection
-								.setRequestProperty("user-agent",
-										"Mozilla/4.0(compatible;MSIE 6.0;Windows NT5.1;SV1)");// 设置浏览器代理
-						connection
-								.setRequestProperty("accept-charset", "utf-8;GBK");// 客户端接受的字符集
-						connection.connect();// 建立连接
-						InputStream inputStream = connection.getInputStream();
-						Map<String, List<String>> headers = connection
-								.getHeaderFields();
-						for (String key : headers.keySet()) {
-							System.out.println(key + "----" + headers.get(key));
-
-						}
-						BufferedReader bufferedReader = new BufferedReader(
-								new InputStreamReader(inputStream));
-						String line = bufferedReader.readLine();
-						while (line != null && line.length() > 0) {
-							builder.append(line);
-							line = bufferedReader.readLine();
-						}
-						bufferedReader.close();
-						inputStream.close();
-						Log.i("builder-----", builder.toString());
-						str1 = builder.toString();
-						phoneHandler.sendEmptyMessage(0);
-						} catch (MalformedURLException e) {
-						// TODO 自动生成的 catch 块
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO 自动生成的 catch 块
-						e.printStackTrace();
-					}
+					Httptype httptype = new Httptype();
+					str1=httptype.read(username);
+					phoneHandler.sendEmptyMessage(0);
 				}
 			}).start();
 		}
@@ -225,6 +191,7 @@ public class ForgetpasswordActivity	extends Activity {
 	    			String message = jsonObject.getString("message");
 	    			if(status==2){
 	    			promptone.setText(" ");
+	    			check=true;
 	    			getsms(phonenumb.getText().toString());
 	    			}else{
 	    			promptone.setText("没有该账号");

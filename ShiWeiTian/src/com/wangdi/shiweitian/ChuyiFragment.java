@@ -147,7 +147,7 @@ public class ChuyiFragment extends Fragment {
 		ChuyiAdapter2 chuyiAdapter = new ChuyiAdapter2(getActivity(),
 				R.layout.chuyi_item1, lists2);
 		listview1.setAdapter(chuyiAdapter);
-		listview1.setOnItemClickListener(onitemClickListener);
+	//	listview1.setOnItemClickListener(onitemClickListener);
 	}
 
 	OnItemClickListener onitemClickListener = new OnItemClickListener() {
@@ -156,8 +156,9 @@ public class ChuyiFragment extends Fragment {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			// TODO 自动生成的方法存根
-			Toast.makeText(getActivity(), "你点的第" + arg2 + "行",
-					Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent();
+			intent.setClass(getActivity(), ShipingbofangActivity.class);
+			startActivity(intent);
 		}
 
 	};

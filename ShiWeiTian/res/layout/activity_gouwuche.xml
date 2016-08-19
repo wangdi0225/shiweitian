@@ -65,7 +65,7 @@
             android:src="@drawable/xuanze_anniu"
             android:text="全选"
             android:textColor="@color/xuanlan"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/heji_textView"
@@ -79,11 +79,12 @@
 
         <TextView
             android:id="@+id/jiesuan_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:background="@drawable/kuangjia"
+            android:background="@color/zhutise"
             android:text="结算 (0)"
+            android:gravity="center"
             android:textColor="#ffffff" />
     </RelativeLayout>
 

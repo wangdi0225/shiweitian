@@ -1,5 +1,6 @@
 package com.wangdi.shiweitian;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -52,7 +53,7 @@ public class WodeFragment extends Fragment {
 		textViewdsh = (TextView) v.findViewById(R.id.wode_daishouhuo);
 		textViewdpj = (TextView) v.findViewById(R.id.wode_daipingjia);
 		textViewdfk.setOnClickListener(onClickListener);
-		textViewdfh.setOnClickListener(onClickListener);
+		textViewdfh.setOnClickListener(onClickListener); 
 		textViewdsh.setOnClickListener(onClickListener);
 		textViewdpj.setOnClickListener(onClickListener);
 		return v;
@@ -81,9 +82,9 @@ public class WodeFragment extends Fragment {
 			}
 		}
 	};
-
 	OnTouchListener onTouchListener = new OnTouchListener() {
 
+		@SuppressLint("ClickableViewAccessibility")
 		@Override
 		public boolean onTouch(View arg0, MotionEvent arg1) {
 			// TODO 自动生成的方法存根
@@ -111,8 +112,8 @@ public class WodeFragment extends Fragment {
 				startActivity(intent);
 				break;
 			case R.id.wode_zhibojiaoxue:
-				intent.setClass(getActivity(), ZhiboActivity.class);
-				startActivity(intent);
+				/*intent.setClass(getActivity(), ZhiboActivity.class);
+				startActivity(intent);*/
 				break;
 			case R.id.wode_wodeshoucang:
 				Toast.makeText(getActivity(), "收藏", Toast.LENGTH_SHORT).show();
